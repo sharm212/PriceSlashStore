@@ -16,6 +16,19 @@
 
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+    });
+ 
+    $( window ).on( "load", function() {
+        console.log( "window loaded" );
+    });
+    $(".dropdown-toggle").dropdown();
+
+    </script>
+
     <style>
       
       .classWithPad { margin:10px; padding:10px; }
@@ -133,49 +146,20 @@
   <!--<h1 class="display-3 text-center" style="padding-top: 20px;">About Us</h1> -->
   <figure class="text-center" style="padding-bottom: 50px;">
     <blockquote class="blockquote">
-        <h1 class="display-3 text-center" style="padding-top: 20px;">Shipping Policy</h1>
+        <h1 class="display-3 text-center" style="padding-top: 20px;">FAQs</h1>
     </blockquote>
     <div class="container">
     <figcaption class="blockquote-footer" style="padding-top: 20px;">
-        <p>
-            As of this time, Price Slash is only shipping within Canada.
-        </p>
-        <p>
-            We ship all products within 2 business days. Please allow 2-14 business days for your order to be delivered. We provide tracking information with most orders but there are some exceptions in which a tracking number will not be provided and the product will be shipped without it.
-        </p>
-        <p>
-            •	Delays: If your shipment does not arrive in a timely manner, please contact us. Once your shipment has left our warehouse, we only have access to the same information you have linked to your tracking number.
-        </p>
-        <p>
-            •	Package Lost: Unfortunately, if the tracking shows that the shipment has been delivered, we no longer have the ability to file a claim as a shipper with the shipping company. You will need to contact them yourself to file a claim for this delivery using the tracking number provided upon purchase.
-        </p>
-    <p style="font-weight: bold;">Product Condition</p>
-    <p>We sell products in the following conditions:</p>
-    <p> •	New - Sealed Packaging</p>
-    <p> •	New - Open Packaging</p>
-    <p> •	Used - Like New</p>
-    <p>	•	Used - Good</p>
-    <p>Please read the listing carefully and examine photos to ensure you understand the condition of the item you are ordering.</p>
-    <p>Product packaging may often times have signs of wear and tear.</p>
-   
-    <p style="font-weight: bold;">Warranties or Guarantees</p>
-    <p>
-      We do not offer any warranties or guarantees on the items we sell. Please contact the manufacturer of the product to inquire whether the manufacturer's warranty will apply to the product you purchased from us. Please contact us if you have any issues with your order.
-    </p>
-
-    <p style="font-weight: bold;">Returns and Refunds</p>
-<p>
-    Please refer to our refund policy page for more information regarding returns and refunds.
-  </p>
-
-  <p style="font-weight: bold;">Product Inspection</p>
-<p>
-  We take great pride in our testing process. Each product is tested at our warehouse when we received it and before being shipping it to you. All products are tested for any signs of wear and defect. If any defect or wear is found during the inspection process then it will be mentioned in the listing of the product. All products are disinfected and cleaned as per the manufacturer's guidelines. We cannot guarantee the battery life remaining for products marked with the condition as "used".
-</p>
-<p style="font-weight: bold;">Taxes</p>
-<p>
-  Please be aware that taxes will be charged on all purchases made within Canada. Taxes and rates are non-negotiable. Rates will be reflective of your province of residence.
-</p>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
     </figcaption></div>
   </figure>
 
