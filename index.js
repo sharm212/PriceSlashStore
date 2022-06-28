@@ -17,15 +17,16 @@ const productsRef = ref(db, 'products/');
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
   data.forEach(element => {
-    console.log(element.productName);
+    var images = element.productImages;
+    var thumbnail = images.split(',');
     var name = element.productName;
     var price = element.productPrice;
     $("#listOfProducts").append('<div class="col-sm-4">'
     +'<div class="classWithPad">'
-    +'<img src="'+element.productImages+'"class="img-fluid">'
+    +'<img src="/productImages/'+thumbnail[0]+'"class="img-fluid">'
     +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
     +'<p class="text-center text-muted">$'+price+'</p>'
-    +'<a class="text-center" href="productDetails.html?'+element.productID+'">Buy Now</a>'
+    +'<a href="productDetails.html?'+element.productID+'">Buy Now</a>'
     +'</div>'
     +'</div>');
     

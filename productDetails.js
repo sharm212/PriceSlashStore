@@ -19,15 +19,30 @@ console.log(queryString);
 const productsRef = ref(db, 'products/'+(parseInt(queryString)-1));
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
+  var images = data.productImages;
+    var allImages = images.split(',');
+
   if(data!=null){
-  $("#productImagesCarousel").append(
-    '<img src="'+data.productImages+'" class="d-block w-100">'
+  $("#mainImage").append(
+    '<img src="/productImages/'+allImages[0]+'" class="d-block w-100">'
     );
+    allImages.forEach((element,index) => {
+      if (index === 0) return;
+  $("#productImagesCarousel").append(
+    '<div class="carousel-item">'
+    +'<img src="/productImages/'+element+'" class="d-block w-100">'
+   +'</div>'
+    );
+
+});
+    }
+
 $("#productTitle").text(data.productName);
 $("#productPrice").text("$"+data.productPrice);
 $("#productDescription").text(data.productDescription);
-}
+
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
 }
+
 });
