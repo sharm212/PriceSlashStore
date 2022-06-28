@@ -25,9 +25,9 @@ onValue(productsRef, (snapshot)=>{
     +'<img src="'+element.productImages+'"class="img-fluid">'
     +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
     +'<p class="text-center text-muted">$'+price+'</p>'
-    +'<a href="productDetails.html?'+element.productID+'">Buy Now</a>'
-    +'</div>'+
-    '</div>');
+    +'<a class="text-center" href="productDetails.html?'+element.productID+'">Buy Now</a>'
+    +'</div>'
+    +'</div>');
     
   });
 });
