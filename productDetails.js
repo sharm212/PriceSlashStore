@@ -39,10 +39,10 @@ onValue(productsRef, (snapshot)=>{
 
 $("#productTitle").text(data.productName);
 $("#productPrice").text("$"+data.productPrice+ " CAD");
-var description = data.productDescription.replace("|","<br>");
+var description = data.productDescription.replace(/<>/g,"<br>");
 console.log(description);
-$("#productDescription").text(description);
-
+//$("#productDescription").text(description);
+$("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
 }
