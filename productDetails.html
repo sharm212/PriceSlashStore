@@ -7,14 +7,12 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
     <title>Headers · Bootstrap v5.2</title>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="productDetails.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css">
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
-    
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -134,12 +132,38 @@
   <!--<h1 class="display-3 text-center" style="padding-top: 20px;">About Us</h1> -->
   <figure class="text-center" style="padding-bottom: 50px;">
     <blockquote class="blockquote">
-        <h1 class="display-3 text-center" style="padding-top: 20px;">Products</h1>
+        <h1 class="display-3 text-center" style="padding-top: 20px;" id="errorPage"></h1>
     </blockquote>
+    <div class="container">
+        <div class="row justify-content-evenly">
+            <div class="col-sm-4">
+              <div class="classWithPad">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="productImagesCarousel">
+                     
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div></div>
+            <div class="col-sm-4">
+              <div class="classWithPad">
+              <h4 class="text-center" style="padding-top: 25px;" id="productTitle"></h4>
+              <h5 class="text-center" style="padding-top: 25px;" id="productPrice"></h5>
+              <a role="button" href="" class="btn btn-dark btn-lg">Buy Now</a>
+              <p class="text-center text-muted" id="productDescription"></p>
+            </div>
+          </div>
+            
+          </div>
+    </div>
   </figure>
-  <div class="row justify-content-evenly" id="listOfProducts">
-
-  </div>
 
   <!-- Footer Section -->
   <div class="container" id="FooterAbout">

@@ -1,3 +1,6 @@
+var queryString = location.search.substring(1);
+console.log(queryString);
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 
@@ -13,21 +16,18 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
-const productsRef = ref(db, 'products/');
+const productsRef = ref(db, 'products/'+(parseInt(queryString)-1));
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
-  data.forEach(element => {
-    console.log(element.productName);
-    var name = element.productName;
-    var price = element.productPrice;
-    $("#listOfProducts").append('<div class="col-sm-4">'
-    +'<div class="classWithPad">'
-    +'<img src="'+element.productImages+'"class="img-fluid">'
-    +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
-    +'<p class="text-center text-muted">$'+price+'</p>'
-    +'<a href="productDetails.html?'+element.productID+'">Buy Now</a>'
-    +'</div>'+
-    '</div>');
-    
-  });
+  if(data!=null){
+  $("#productImagesCarousel").append(
+    '<img src="'+data.productImages+'" class="d-block w-100">'
+    );
+$("#productTitle").text(data.productName);
+$("#productPrice").text("$"+data.productPrice);
+$("#productDescription").text(data.productDescription);
+}
+if(data==null){
+    $("#errorPage").text("Error: Page Does Not Exist");
+}
 });
