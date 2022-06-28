@@ -38,8 +38,10 @@ onValue(productsRef, (snapshot)=>{
     }
 
 $("#productTitle").text(data.productName);
-$("#productPrice").text("$"+data.productPrice);
-$("#productDescription").text(data.productDescription);
+$("#productPrice").text("$"+data.productPrice+ " CAD");
+var description = data.productDescription.replace("|","<br>");
+console.log(description);
+$("#productDescription").text(description);
 
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");

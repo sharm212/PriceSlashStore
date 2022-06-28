@@ -71,6 +71,11 @@
         -webkit-overflow-scrolling: touch;
       }
 
+      .carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
     </style>
 
     
@@ -140,11 +145,11 @@
                       <div class="carousel-item active" id="mainImage">
                       </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <button style="padding-right: 40px;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <button style="padding-left: 40px;" class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
@@ -152,10 +157,11 @@
             </div></div>
             <div class="col-sm-4">
               <div class="classWithPad">
-              <h4 class="text-center" style="padding-top: 25px;" id="productTitle"></h4>
-              <h5 class="text-center" style="padding-top: 25px;" id="productPrice"></h5>
-              <a role="button" href="" class="btn btn-dark btn-lg">Buy Now</a>
-              <p class="text-center text-muted" id="productDescription"></p>
+              <h1 class="text-start" class="display-1" style="padding-top: 35px;" id="productTitle"></h1>
+              <h5 class="text-start text-muted" style="padding-top: 25px;" id="productPrice"></h5>
+              <a role="button" href="" class="btn btn-dark btn-lg" style="margin-top:20px; border-radius: 0 !important; width:100%;">Buy Now</a>
+              <p style="padding-top: 50px;" class="text-start"><strong>Description</strong></p>
+              <p class="text-start text-muted" id="productDescription"></p>
             </div>
           </div>
             
