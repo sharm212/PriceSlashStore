@@ -38,6 +38,7 @@ onValue(productsRef, (snapshot)=>{
     }
 
 $("#productTitle").text(data.productName);
+$("#titleProductName").text(data.productName + " | Price Slash");
 $("#productPrice").text("$"+data.productPrice+ " CAD");
 var description = data.productDescription.replace(/<>/g,"<br>");
 console.log(description);
