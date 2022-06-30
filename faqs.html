@@ -7,10 +7,99 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
     <title>FAQs | Price Slash</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
 
-    
+    <style type="text/css">
+      body{margin-top:20px;}
+      .section_padding_130 { 
+          padding-bottom: 130px;
+      }
+      .faq_area {
+          position: relative;
+          z-index: 1;
+          background-color: #ffffff;
+      }
+      
+      .faq-accordian {
+          position: relative;
+          z-index: 1;
+      }
+      .faq-accordian .card {
+          position: relative;
+          z-index: 1;
+          margin-bottom: 1.5rem;
+      }
+      .faq-accordian .card:last-child {
+          margin-bottom: 0;
+      }
+      .faq-accordian .card .card-header {
+          background-color: #000000;
+          padding: 0;
+          border-bottom-color: #000000;
+      }
+      .faq-accordian .card .card-header h6 {
+          cursor: pointer;
+          padding: 1.75rem 2rem;
+          color: #ffffff;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -ms-grid-row-align: center;
+          align-items: center;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+      }
+      .faq-accordian .card .card-header h6 span {
+          font-size: 1.5rem;
+      }
+      .faq-accordian .card .card-header h6.collapsed {
+          color: #ffffff;
+      }
+      .faq-accordian .card .card-header h6.collapsed span {
+          -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+      }
+      .faq-accordian .card .card-body {
+          padding: 1.75rem 2rem;
+      }
+      .faq-accordian .card .card-body p:last-child {
+          margin-bottom: 0;
+      }
+      
+      @media only screen and (max-width: 575px) {
+          .support-button p {
+              font-size: 14px;
+          }
+      }
+      
+      .support-button i {
+          color: #ffffff;
+          font-size: 1.25rem;
+      }
+      @media only screen and (max-width: 575px) {
+          .support-button i {
+              font-size: 1rem;
+          }
+      }
+      
+      .support-button a {
+          text-transform: capitalize;
+          color: #000000;
+      }
+      @media only screen and (max-width: 575px) {
+          .support-button a {
+              font-size: 13px;
+          }
+      }
+      
+      </style>
 
     
 
@@ -148,20 +237,55 @@
     <blockquote class="blockquote">
         <h1 class="display-3 text-center" style="padding-top: 20px;">FAQs</h1>
     </blockquote>
-    <div class="container">
-    <figcaption class="blockquote-footer" style="padding-top: 20px;">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-    </figcaption></div>
   </figure>
+  <div class="faq_area section_padding_130" id="faq">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- FAQ Area-->
+            <div class="col-12 col-sm-10 col-lg-8">
+                <div class="accordion faq-accordian" id="faqAccordion">
+                    <div class="card border-0 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="card-header" id="headingOne">
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Will there be any additional fees and taxes on my purchase?<span class="lni-chevron-up"></span></h6>
+                        </div>
+                        <div class="collapse border border-dark rounded-bottom" id="collapseOne" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                <p>Prices shown on our website our inclusive of Shipping, Handling and Taxes. There are no additional fees.</p>
+                                 </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <div class="card-header" id="headingTwo">
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Do you offer any warranty?<span class="lni-chevron-up"></span></h6>
+                        </div>
+                        <div class="collapse border border-dark rounded-bottom" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                <p>We offer a 7 day return policy on all our products. We cannot guarantee any further manufacturer warranty.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <div class="card-header" id="headingThree">
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">When can I expect my order to arrive?<span class="lni-chevron-up"></span></h6>
+                        </div>
+                        <div class="collapse border border-dark rounded-bottom" id="collapseThree" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                            <div class="card-body">
+                                <p>We do not guarantee shipping times, however all shipments go out within 48 business hours of receiving payment, and tracking numbers are provided via e-mail.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Support Button-->
+                <div class="support-button text-center d-flex align-items-center justify-content-center mt-4 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                    <i class="lni-emoji-sad"></i>
+                    <p class="mb-0 px-2">Can't find your answers?</p>
+                    <a href="contact.html"> Contact us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
 
   <!-- Footer Section -->
   <div class="container" id="FooterAbout">
