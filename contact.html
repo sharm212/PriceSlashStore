@@ -126,8 +126,25 @@
     </div>
   </header>
 
-  <!--<h1 class="display-3 text-center" style="padding-top: 20px;">About Us</h1> -->
+  <div class="form text-center">
+    <h1>Contact Us</h1>
+    <form onsubmit="sendEmail(); reset(); return false;">
+      <div class="flex-rev">
+        <input type="text" placeholder="Your Name" name="name" id="name" required/>
+        <label for="name">Full Name</label>
+      </div>
+      <div class="flex-rev">
+        <input type="email" placeholder="example@email.com" name="email" id="email" required/>
+        <label for="email">Your Email</label>
+      </div>
 
+      <div class="flex-rev">
+        <textarea placeholder="I would like to know about the product...." name="message" id="message" required></textarea>
+        <label for="message">Your Message</label>
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
 
   <!-- Footer Section -->
   <div class="container" id="FooterAbout">
@@ -171,7 +188,19 @@
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+    Email.send({
+    SecureToken : "b8b5396f-17f2-4675-8458-6d68237a0480",
+    To : 'priceslashsales@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New Contact Form Enquiry",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+      }
+    </script>  
   </body>
 </html>
