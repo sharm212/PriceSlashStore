@@ -192,11 +192,11 @@
     <script>
       function sendEmail(){
     Email.send({
-    SecureToken : "856053e8-a680-47df-93bf-5b021189df15",
+    SecureToken : "5590a469-7fbf-4d5a-816b-533d022d5c70",
     To : 'priceslashsales@gmail.com',
-    From : document.getElementById("email").value,
+    From : "priceslashsales@gmail.com",
     Subject : "New Contact Form Enquiry",
-    Body : "And this is the body"
+    Body : "From: "+document.getElementById("email").value+" "+document.getElementById("message").value
 }).then(
   message => alert(message)
 );
