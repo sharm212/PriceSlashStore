@@ -125,27 +125,36 @@
       </div>
     </div>
   </header>
+  <figure class="text-center" style="padding-bottom: 50px;">
+    <blockquote class="blockquote">
+        <h1 class="display-3 text-center" style="padding-top: 20px;">Contact Us</h1>
+    </blockquote>
+  </figure>
 
+  <div class="container">
   <div class="form text-center">
-    <h1>Contact Us</h1>
     <form onsubmit="sendEmail(); reset(); return false;">
-      <div class="flex-rev">
-        <input type="text" placeholder="Your Name" name="name" id="name" required/>
-        <label for="name">Full Name</label>
-      </div>
-      <div class="flex-rev">
-        <input type="email" placeholder="example@email.com" name="email" id="email" required/>
-        <label for="email">Your Email</label>
-      </div>
-
-      <div class="flex-rev">
-        <textarea placeholder="I would like to know about the product...." name="message" id="message" required></textarea>
-        <label for="message">Your Message</label>
-      </div>
-      <button type="submit">Send</button>
-    </form>
+  <!-- Name input -->
+  <div class="form-outline mb-4">
+    <input type="text" id="name" class="form-control" placeholder="Full Name"/>
   </div>
 
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" id="email" class="form-control" placeholder="Email Address"/>
+  </div>
+
+  <!-- Message input -->
+  <div class="form-outline mb-4">
+    <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+  </div>
+
+  
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-dark btn-lg" style="border-radius: 0 !important; margin-bottom: 100px;">Send</button>
+    </form>
+  </div>
+</div>
   <!-- Footer Section -->
   <div class="container" id="FooterAbout">
     <footer class="pt-5">
