@@ -23,7 +23,7 @@ onValue(productsRef, (snapshot)=>{
     var price = element.productPrice;
     $("#listOfProducts").append('<div class="col-sm-4">'
     +'<div class="classWithPad text-center">'
-    +'<img src="/productImages/'+thumbnail[0]+'"class="img-fluid">'
+    +'<img src="productImages/'+thumbnail[0]+'"class="img-fluid">'
     +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
     +'<p class="text-center text-muted">$'+price+'</p>'
     +'<a role="button" class="btn btn-outline-dark" href="productDetails.html?'+element.productID+'">Buy Now</a>'

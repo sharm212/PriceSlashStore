@@ -24,13 +24,13 @@ onValue(productsRef, (snapshot)=>{
 
   if(data!=null){
   $("#mainImage").append(
-    '<img src="/productImages/'+allImages[0]+'" class="d-block w-100">'
+    '<img src="productImages/'+allImages[0]+'" class="d-block w-100">'
     );
     allImages.forEach((element,index) => {
       if (index === 0) return;
   $("#productImagesCarousel").append(
     '<div class="carousel-item">'
-    +'<img src="/productImages/'+element+'" class="d-block w-100">'
+    +'<img src="productImages/'+element+'" class="d-block w-100">'
    +'</div>'
     );
 
