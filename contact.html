@@ -206,12 +206,12 @@
       function sendEmail(){
     Email.send({
     SecureToken : "5590a469-7fbf-4d5a-816b-533d022d5c70",
-    To : 'priceslashsales@gmail.com',
+    To : 'info@priceslashstore.com',
     From : "priceslashsales@gmail.com",
     Subject : "New Contact Form Enquiry",
     Body : "From: "+document.getElementById("email").value+" "+document.getElementById("message").value
 }).then(
-  message => alert(message)
+  message => alert("Your message has been sent.")
 );
       }
     </script>  
