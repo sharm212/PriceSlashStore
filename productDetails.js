@@ -44,6 +44,7 @@ $("#productPriceModal").text("$"+data.productPrice+ " CAD");
 $("#SKU").text("SKU: "+data.productID);
 var description = data.productDescription.replace(/<>/g,"<br>");
 console.log(description);
+$("#productShareLink").attr("href","https://priceslashstore.com/productDetails?"+data.productID);
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 if(data==null){
