@@ -16,6 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const productsRef = ref(db, 'products/');
+
 let start=0;
 let end = 4;
 myfunc(start,end);
@@ -26,16 +27,23 @@ $( "#loadMore" ).click(function() {
  myfunc(start,end);
   });
 function myfunc(starts,ends){
+  
   onValue(productsRef, (snapshot)=>{
     const data = snapshot.val();
-  
+
+//Needs Optimization    
+data.forEach(function(item, index, object){
+  if (item.productStatus == "OutOfStock") {
+    object.splice(index, 1);
+  }
+});
+
     for (let i =starts; i < ends; i++) {
 if(i==data.length){
   $( "#loadMore" ).remove();
   return
 }
-//else if(i+1 == data.length){$( "#loadMore" ).remove();
-//return}
+
 else{
     var images = data[i].productImages;
     var thumbnail = images.split(',');
