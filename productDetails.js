@@ -49,6 +49,7 @@ $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDes
 $("meta[property='og:title']").attr("content", data.productName);
 $("meta[property='og:url']").attr("content", "https://priceslashstore.com/productDetails?"+data.productID);
 $("meta[property='og:image']").attr("content", "productImages/"+allImages[0]);
+$("meta[property='og:description']").attr("content", data.productDescription.replace(/<>/g,"<br>"));
 
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
