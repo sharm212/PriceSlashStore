@@ -15,7 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var queryString = location.search.substring(1);
-console.log(queryString);
 const productsRef = ref(db, 'products/'+(parseInt(queryString)-1));
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
@@ -43,14 +42,13 @@ $("#productPrice").text("$"+data.productPrice+ " CAD");
 $("#productPriceModal").text("$"+data.productPrice+ " CAD");
 $("#SKU").text("SKU: "+data.productID);
 var description = data.productDescription.replace(/<>/g,"<br>");
-console.log(description);
 $("#productShareLink").attr("href","https://priceslashstore.com/productDetails?"+data.productID);
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 
 $("meta[property='og:title']").attr("content", data.productName);
 $("meta[property='og:url']").attr("content", "https://priceslashstore.com/productDetails?"+data.productID);
-$("meta[property='og:image']").attr("content", productImages/'+allImages[0]');
+$("meta[property='og:image']").attr("content", "productImages/"+allImages[0]);
 
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
