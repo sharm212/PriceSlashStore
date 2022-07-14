@@ -21,6 +21,12 @@ onValue(productsRef, (snapshot)=>{
   var images = data.productImages;
     var allImages = images.split(',');
 
+    $("meta[property='og:title']").attr("content", data.productName);
+    $("meta[property='og:url']").attr("content", "https://priceslashstore.com/productDetails?"+data.productID);
+    $("meta[property='og:image']").attr("content", "productImages/"+allImages[0]);
+    $("meta[property='og:description']").attr("content", data.productDescription.replace(/<>/g,"<br>"));
+    
+
   if(data!=null){
   $("#mainImage").append(
     '<img src="productImages/'+allImages[0]+'" class="d-block w-100">'
@@ -46,10 +52,6 @@ $("#productShareLink").attr("href","https://priceslashstore.com/productDetails?"
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 
-$("meta[property='og:title']").attr("content", data.productName);
-$("meta[property='og:url']").attr("content", "https://priceslashstore.com/productDetails?"+data.productID);
-$("meta[property='og:image']").attr("content", "productImages/"+allImages[0]);
-$("meta[property='og:description']").attr("content", data.productDescription.replace(/<>/g,"<br>"));
 
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
