@@ -19,10 +19,10 @@ const productsRef = ref(db, 'products/');
 
 var vars = {};
 var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-    vars[key] = value;
-    
+    vars[key] = value;    
 });
-$("#searchTitle").text("Product Results For: "+vars.search);
+var searchedTitle = vars.search.replace(/\+/g," ");
+$("#searchTitle").text("Product Results For: "+searchedTitle);
 
 let start=0;
 let end = 4;
@@ -40,12 +40,13 @@ function myfunc(starts,ends){
 
 //Needs Optimization    
 data.forEach(function(item, index, object){
-  if (item.productStatus == "OutOfStock" || item.productName.includes(vars.search) == false) {
-    console.log(item.productName);
+  if (item.productStatus == "OutOfStock" || item.productName.includes(searchedTitle) == false) {
     object.splice(index, 1);
   }
 });
-
+data.forEach(function(item, index, object){
+      console.log(item.productName);    
+  });
 
 
     for (let i =starts; i < ends; i++) {
