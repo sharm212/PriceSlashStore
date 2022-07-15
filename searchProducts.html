@@ -6,20 +6,22 @@
     <meta name="description" content="">
     <meta name="author" content="Price Slash">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Price Slash</title>
-    <link rel="canonical" href="https://priceslashstore.com/">
+    <title>Search | Price Slash</title>
+    <script type="module" src="searchProducts.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="canonical" href="https://priceslashstore.com/products">
+    
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <style>
-      
-html{
-  background-color: black;
-}
-body{
-  background-color: black;
-}
-      .classWithPad { margin:10px; padding:10px; }
+      body,html{
+        background-color: black;
+      }
 
+
+      .classWithPad { margin:10px; padding:10px; }
 
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -114,7 +116,6 @@ body{
 </svg>
 
 <main>
-
   <header class="p-2 bg-black text-white">
     <div class="container">
       <nav class="navbar navbar-expand-md navbar-dark">
@@ -131,7 +132,6 @@ body{
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="mx-auto"><a href="/" class="navbar-brand">Price Slash</a></div>
-
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
          <ul class="navbar-nav text-center">
           <hr> 
@@ -142,83 +142,24 @@ body{
           <li><a href="about" class="nav-link text-white">About</a></li>
           <hr> 
           <li><a href="faqs" class="nav-link text-white">FAQs</a></li>
-         </ul>
-         <hr> 
-         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <form class="d-flex justify-content-end" role="search" action="searchProducts.html" method="GET">
-              <input class="form-control me-2" type="text" name="search" placeholder="Search" aria-label="Search" required>
-              <button class="btn btn-outline-light" type="submit" value="Submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
-              </button>
-            </form>
-            <script>
-              
-            </script>
-          </li>
-        </ul>
+         </ul> 
         </div>
+
       </nav>
-   </div>
-   </header>
-
-
-  <div class="row" style="margin:0;">
-    <div class="col-sm-6 nopadding"><img src="img2.jpg" class="img-fluid"></div>
-    <div class="col-sm-6 nopadding"><img src="img3.jpg" class="img-fluid"></div>
-  </div>
-
-  <figure class="text-center" style="background-color: black; padding-top: 50px;padding-bottom: 50px;">
-  <h1 class="display-4" style="color: white; padding-bottom: 30px;">Everyday's a Sale</h1>
-  <a role="button" href="products" class="btn btn-light btn-lg text-align: center" style="border-radius: 0 !important;">Shop All</a>
-</figure>
-
-
-<div class="row" style="background-color: white; margin:0;">
-  <div class="col-sm-4">
-    <div class="classWithPad">
-    <img src="img4.jpg" class="img-fluid">
-    <h5 class="text-center" style="padding-top: 25px;">Customer Service</h5>
-    <p class="text-center text-muted">We are swift, clear, and respectful in all our communication.</p>	
-  </div></div>
-  <div class="col-sm-4">
-    <div class="classWithPad">
-    <img src="img5.jpg" class="img-fluid">
-    <h5 class="text-center" style="padding-top: 25px;">Attention to Detail</h5>	
-    <p class="text-center text-muted">We sweat the small stuff, so you don't have to - no detail is too small.</p>
-  </div>
-</div>
-  <div class="col-sm-4">
-    <div class="classWithPad"> <img src="img6.jpg" class="img-fluid">
-    <h5 class="text-center" style="padding-top: 25px;">Exceeding Expectations</h5>	
-    <p class="text-center text-muted">We aim to deliver value and go above and beyond for you!</p>
-  </div></div>
-</div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h5 class="modal-title w-100" id="exampleModalLabel">CHECKOUT WITH E-TRANSFER</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>YOUR E-TRANSFER TOTAL IS:</p>
-        <p id="productPriceModal"></p>
-        <p><em>Price is inclusive of Shipping, Handling and Taxes.</em></p>
-        <br>
-        <p>To pay with e-transfer, send your payment to:</p>
-        <p>info@priceslashstore.com</p>
-        <br>
-        <p><strong>Please include the following information while sending the payment as a message/comment so our team can contact you for shipping details once your payment has been received:</strong></p>
-        <p>Your Email</p>
-        <p id="SKU"></p>
-      </div>
-     
+      
     </div>
-  </div>
-</div>
+  </header>
+
+  <!--<h1 class="display-3 text-center" style="padding-top: 20px;">About Us</h1> -->
+  <figure class="text-center" style="padding-bottom: 50px; background-color: white;margin:0;">
+    <blockquote class="blockquote">
+        <h1 class="display-3 text-center" id="searchTitle" style="padding-top: 20px;"></h1>
+    </blockquote>
+    <div class="row justify-content-evenly px-xl-5" id="listOfProducts" style="background-color:white; margin:0;">
+    </div>
+    <button id="loadMore" class="btn btn-dark btn-lg text-align: center" style="border-radius: 0 !important; margin-top: 100px;">Load More</button>
+  </figure>
+
 
   <!-- Footer Section -->
   <div class="container" style="color: white;">
