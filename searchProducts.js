@@ -21,7 +21,11 @@ var vars = {};
 var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
     vars[key] = value;    
 });
-var searchedTitle = vars.search.replace(/\+/g," ");
+
+var search = vars.search.replace(/\+/g," ");
+search = search.toLowerCase();
+const searchedTitle = search.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+
 $("#searchTitle").text("Product Results For: "+searchedTitle);
 
 let start=0;
@@ -48,12 +52,16 @@ data.forEach(function(item, index, object){
 for(var i=0; i<10; i++){
 data.forEach(function(item, index, object){
     if (item.productName.includes(searchedTitle,0)==false) {
-      console.log(item.productName)
+     // console.log(item.productName)
         object.splice(index, 1);
     }
   });
 }
-//console.log(a);
+    //If Statement to check if no results are found
+     if(data.length==0){
+         $("#searchTitle").text("No Results Found For: "+searchedTitle);
+     }
+
     for (let i =starts; i < ends; i++) {
 if(i==data.length){
   $( "#loadMore" ).remove();
@@ -79,6 +87,8 @@ else{
       $( "#loadMore" ).remove();
       return
     }
+
   });
+  
 }
 
