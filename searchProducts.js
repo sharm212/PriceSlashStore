@@ -39,14 +39,13 @@ function myfunc(starts,ends){
     const data = snapshot.val();
 
 //Needs Optimization    
+//Misses Some Items - Needs Fixing
 data.forEach(function(item, index, object){
   if (item.productStatus == "OutOfStock" || item.productName.includes(searchedTitle) == false) {
+   console.log(item.productName);
     object.splice(index, 1);
   }
 });
-data.forEach(function(item, index, object){
-      console.log(item.productName);    
-  });
 
 
     for (let i =starts; i < ends; i++) {
