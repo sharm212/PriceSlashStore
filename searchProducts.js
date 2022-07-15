@@ -41,13 +41,19 @@ function myfunc(starts,ends){
 //Needs Optimization    
 //Misses Some Items - Needs Fixing
 data.forEach(function(item, index, object){
-  if (item.productStatus == "OutOfStock" || item.productName.includes(searchedTitle) == false) {
-   console.log(item.productName);
+  if (item.productStatus == "OutOfStock") {
     object.splice(index, 1);
   }
 });
-
-
+for(var i=0; i<10; i++){
+data.forEach(function(item, index, object){
+    if (item.productName.includes(searchedTitle,0)==false) {
+      console.log(item.productName)
+        object.splice(index, 1);
+    }
+  });
+}
+//console.log(a);
     for (let i =starts; i < ends; i++) {
 if(i==data.length){
   $( "#loadMore" ).remove();
@@ -66,7 +72,8 @@ else{
     +'<p class="text-center text-muted">$'+price+'</p>'
     +'<a role="button" class="btn btn-outline-dark" href="productDetails?'+data[i].productID+'">Buy Now</a>'
     +'</div>'
-    +'</div>');}
+    +'</div>');
+}
     }
     if(ends==data.length){
       $( "#loadMore" ).remove();
