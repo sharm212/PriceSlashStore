@@ -23,10 +23,10 @@ var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,k
 });
 
 var search = vars.search.replace(/\+/g," ");
-search = search.toLowerCase();
-const searchedTitle = search.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+//search = search.toLowerCase();
+//const searchedTitle = search.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
 
-$("#searchTitle").text("Product Results For: "+searchedTitle);
+$("#searchTitle").text("Product Results For: "+search);
 
 let start=0;
 let end = 4;
@@ -51,7 +51,7 @@ data.forEach(function(item, index, object){
 });
 for(var i=0; i<10; i++){
 data.forEach(function(item, index, object){
-    if (item.productName.includes(searchedTitle,0)==false) {
+    if (item.productName.toLowerCase().includes(search.toLowerCase(),0)==false) {
      // console.log(item.productName)
         object.splice(index, 1);
     }
@@ -59,7 +59,7 @@ data.forEach(function(item, index, object){
 }
     //If Statement to check if no results are found
      if(data.length==0){
-         $("#searchTitle").text("No Results Found For: "+searchedTitle);
+         $("#searchTitle").text("No Results Found For: "+search);
      }
 
     for (let i =starts; i < ends; i++) {
