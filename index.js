@@ -22,6 +22,7 @@ if(document.URL == "https://priceslashstore.com/"){
 recentlyAdded();}
 //For HomePage
 
+//For Products Page
 if(document.URL == "https://priceslashstore.com/products"){
 let start=0;
 let end = 4;
