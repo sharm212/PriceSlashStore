@@ -22,7 +22,7 @@ if(document.URL == "https://priceslashstore.com/"){
 recentlyAdded();}
 //For HomePage
 
-
+if(document.URL == "https://priceslashstore.com/products"){
 let start=0;
 let end = 4;
 myfunc(start,end);
@@ -68,8 +68,9 @@ else{
       return
     }
   });
-}
+}}
 
+//Function for HomePage
 function recentlyAdded(){
   
   onValue(productsRef, (snapshot)=>{
