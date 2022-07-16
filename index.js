@@ -17,6 +17,12 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const productsRef = ref(db, 'products/');
 
+//For HomePage
+if(document.URL == "https://priceslashstore.com/"){
+recentlyAdded();}
+//For HomePage
+
+
 let start=0;
 let end = 4;
 myfunc(start,end);
@@ -30,7 +36,6 @@ function myfunc(starts,ends){
   
   onValue(productsRef, (snapshot)=>{
     const data = snapshot.val();
-
 //Needs Optimization    
 data.forEach(function(item, index, object){
   if (item.productStatus == "OutOfStock") {
@@ -61,6 +66,34 @@ else{
     if(ends==data.length){
       $( "#loadMore" ).remove();
       return
+    }
+  });
+}
+
+function recentlyAdded(){
+  
+  onValue(productsRef, (snapshot)=>{
+    const data = snapshot.val();
+//Needs Optimization    
+data.forEach(function(item, index, object){
+  if (item.productStatus == "OutOfStock") {
+    object.splice(index, 1);
+  }
+});
+
+    for (let i =data.length -4; i < data.length; i++) {
+
+    var images = data[i].productImages;
+    var thumbnail = images.split(',');
+    var name = data[i].productName;
+    var price = data[i].productPrice;
+    $("#recentlyAdded").append('<div class="col-md-3">'
+    +'<div class="text-center" style="padding-top:20px;">'
+    +'<a href="productDetails?'+data[i].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
+    +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
+    +'<p class="text-center text-muted">$'+price+'</p>'
+    +'</div>'
+    +'</div>');
     }
   });
 }
