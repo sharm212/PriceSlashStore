@@ -78,6 +78,20 @@ body{
         -webkit-overflow-scrolling: touch;
       }
 
+      #dividerAroundWord{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        align-items:center;
+        column-gap:1.6rem;
+      }
+
+      #dividerAroundWord::before, #dividerAroundWord::after{
+        content:"";
+        height:2px;
+        background-color: #000;
+        display:block;
+      }
+
     </style>
 
     
@@ -178,15 +192,12 @@ body{
 
 
 <div style="background-color:white;">
-<h1 class="display-5 text-center" style="color: black; padding-bottom: 20px;padding-top: 20px;">Recently Added</h1>
+<h1 id="dividerAroundWord" class="display-5 text-center" style="color: black; padding-bottom: 20px;padding-top: 20px;">Recently Added</h1>
 <div class="row justify-content-evenly px-xl-5" id="recentlyAdded" style="background-color:white; margin:0;">
 </div></div>
 
-
-<hr style="height:1px;margin:0;color:#dbdbdb;background-color: #dbdbdb;"> 
-
 <div class="row" style="background-color: white; margin:0;">
-  <h1 class="display-5 text-center" style="color: black; padding-bottom: 20px;padding-top: 20px;">Why Choose Us?</h1>
+  <h1 id="dividerAroundWord" class="display-5 text-center" style="color: black; padding-bottom: 20px;padding-top: 20px;">Why Choose Us?</h1>
   <div class="col-sm-4">
     <div class="classWithPad">
     <img src="img4.jpg" class="img-fluid">
