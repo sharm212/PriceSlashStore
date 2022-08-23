@@ -78,18 +78,22 @@ body{
         -webkit-overflow-scrolling: touch;
       }
 
-      #dividerAroundWord{
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-        align-items:center;
-        column-gap:1.6rem;
-      }
-
       #dividerAroundWord::before, #dividerAroundWord::after{
-        content:"";
-        height:2px;
         background-color: #000;
-        display:block;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+      }
+      #dividerAroundWord::before{
+        right: 0.5em;
+  margin-left: -50%;
+      }
+      #dividerAroundWord::after{
+        left: 0.5em;
+  margin-right: -50%;
       }
 
     </style>
