@@ -7,50 +7,11 @@
     <meta name="author" content="Price Slash">
     <meta name="generator" content="Hugo 0.98.0">
     <title id="titleProductName"></title>
-    <script>
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDHLtzB6wRgh1iBH44Iwn-uEehRruAdZ8A",
-  authDomain: "price-slash-3dad0.firebaseapp.com",
-  databaseURL: "https://price-slash-3dad0-default-rtdb.firebaseio.com",
-  projectId: "price-slash-3dad0",
-  storageBucket: "price-slash-3dad0.appspot.com",
-  messagingSenderId: "532707340418",
-  appId: "1:532707340418:web:7deb612dda4aac3735849b"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-var queryString = location.search.substring(1);
-const productsRef = ref(db, 'products/'+(parseInt(queryString)-1));
-onValue(productsRef, (snapshot)=>{
-  const data = snapshot.val();
-  var images = data.productImages;
-    var allImages = images.split(',');
-
-    var link = document.createElement('meta');
-      link.setAttribute('property', 'og:url');
-        link.content = "https://priceslashstore.com/productDetails?"+data.productID;
-          document.getElementsByTagName('head')[0].appendChild(link);
-
-          var title = document.createElement('meta');
-          title.setAttribute('property', 'og:title');
-            title.content = data.productName;
-              document.getElementsByTagName('head')[0].appendChild(title);
-
-   });
-    </script>
-
-    <!--<meta property="og:title" content="Price Slash"/>-->
-    <!--<meta property="og:url" content=""/>-->
+    <meta property="og:title" content="Price Slash"/>
+    <meta property="og:url" content=""/>
     <meta property="og:image" itemprop="image" content="">
     <meta property="og:description" content="Discounted prices on name brands, excellent customer service and the value for each cent spent."/>
     <meta property="og:site_name" content="Price Slash">
-    <meta property="og:image:width" content="250"/>
-    <meta property="og:image:height" content="250"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="canonical" id="productShareLink" href="">
