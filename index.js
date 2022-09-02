@@ -96,7 +96,7 @@ data.forEach(function(item, index, object){
     +'</div>'
     +'</div>');
     }
-    var productNumbers = [1,2,3,9];
+    var productNumbers = [0,4,18,16];
     for (let j =0; j < 4; j++) {
       var images = data[productNumbers[j]].productImages;
       var thumbnail = images.split(',');
