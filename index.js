@@ -97,17 +97,15 @@ data.forEach(function(item, index, object){
     +'</div>');
     }
     var productNumbers = [1,2,3,9];
-    for (let i =productNumbers.length; i < productNumbers.length; i++) {
-      var images = data[productNumbers[i]].productImages;
+    for (let j =0; j < 4; j++) {
+      var images = data[productNumbers[j]].productImages;
       var thumbnail = images.split(',');
-      var name = data[productNumbers[i]].productName;
-      var price = data[productNumbers[i]].productPrice;
-      console.log("Images:"+images);
-      console.log("Price:"+price);
-      console.log("Name:"+name);
+      var name = data[productNumbers[j]].productName;
+      var price = data[productNumbers[j]].productPrice;
+    
       $("#bestSellers").append('<div class="col-md-3">'
       +'<div class="text-center" style="padding-top:20px;">'
-      +'<a href="productDetails?'+data[productNumbers[i]].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
+      +'<a href="productDetails?'+data[productNumbers[j]].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
       +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
       +'<p class="text-center text-muted">$'+price+'</p>'
       +'</div>'
