@@ -84,7 +84,6 @@ data.forEach(function(item, index, object){
 });
 
     for (let i =data.length -4; i < data.length; i++) {
-
     var images = data[i].productImages;
     var thumbnail = images.split(',');
     var name = data[i].productName;
@@ -97,6 +96,21 @@ data.forEach(function(item, index, object){
     +'</div>'
     +'</div>');
     }
+    var productNumbers = [1,2,3,9];
+    for (let i =productNumbers.length; i < productNumbers.length; i++) {
+      var images = data[productNumbers[i]].productImages;
+      var thumbnail = images.split(',');
+      var name = data[productNumbers[i]].productName;
+      var price = data[productNumbers[i]].productPrice;
+      $("#bestSellers").append('<div class="col-md-3">'
+      +'<div class="text-center" style="padding-top:20px;">'
+      +'<a href="productDetails?'+data[productNumbers[i]].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
+      +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
+      +'<p class="text-center text-muted">$'+price+'</p>'
+      +'</div>'
+      +'</div>');
+      }
+
   });
 }
 
