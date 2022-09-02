@@ -102,6 +102,9 @@ data.forEach(function(item, index, object){
       var thumbnail = images.split(',');
       var name = data[productNumbers[i]].productName;
       var price = data[productNumbers[i]].productPrice;
+      console.log("Images:"+images);
+      console.log("Price:"+price);
+      console.log("Name:"+name);
       $("#bestSellers").append('<div class="col-md-3">'
       +'<div class="text-center" style="padding-top:20px;">'
       +'<a href="productDetails?'+data[productNumbers[i]].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
