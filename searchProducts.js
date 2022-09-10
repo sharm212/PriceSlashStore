@@ -70,6 +70,7 @@ if(i==data.length){
 }
 
 else{
+  if(data[i].productStatus == "InStock"){
     var images = data[i].productImages;
     var thumbnail = images.split(',');
     var name = data[i].productName;
@@ -81,7 +82,7 @@ else{
     +'<p class="text-center text-muted">$'+price+'</p>'
     +'<a role="button" class="btn btn-outline-dark" href="productDetails?'+data[i].productID+'">Buy Now</a>'
     +'</div>'
-    +'</div>');
+    +'</div>');}
 }
     }
     if(ends==data.length){
