@@ -52,6 +52,15 @@ $("#productShareLink").attr("href","https://priceslashstore.com/productDetails?"
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 
+//New Feature
+if(data.productStatus == "OutOfStock"){
+$("#BuyNowButton").text("Out of Stock");
+$("#BuyNowButton").removeAttr('href')
+$("#BuyNowButton").attr("disabled","true");
+$("#BuyNowButton").attr("data-bs-toggle","");
+$("#BuyNowButton").attr("data-bs-target","");
+$("#BuyNowButton").off('click');
+}
 
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
