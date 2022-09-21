@@ -27,7 +27,7 @@ var search = vars.search.replace(/\+/g," ");
 //const searchedTitle = search.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
 
 $("#searchTitle").text("Product Results For: "+search);
-$("#productSearchLink").attr("href","https://priceslashstore.com/searchProducts.html?search="+search);
+$("#productSearchLink").attr("href","https://priceslashstore.com/searchProducts.html?search="+vars.search);
 
 let start=0;
 let end = 4;
