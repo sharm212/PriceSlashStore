@@ -74,6 +74,29 @@
         -webkit-overflow-scrolling: touch;
       }
 
+      .hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #ffffff;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform-origin: bottom right;
+  transition: transform 0.30s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
     </style>
 
     
@@ -131,16 +154,16 @@
         <div class="mx-auto"><a href="/" class="navbar-brand">Price Slash</a></div>
 
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
-         <ul class="navbar-nav text-center">
-          <hr> 
-          <li><a href="/" class="nav-link text-white">Home</a></li>
-          <hr>  
-          <li><a href="contact" class="nav-link text-white">Contact</a></li>
-          <hr> 
-          <li><a href="about" class="nav-link text-white">About</a></li>
-          <hr> 
-          <li><a href="faqs" class="nav-link text-white">FAQs</a></li>
-         </ul>
+          <ul class="navbar-nav text-center">
+            <hr> 
+            <li><a href="/" class="nav-link text-white hover-underline-animation">Home</a></li>
+            <hr>  
+            <li><a href="contact" class="nav-link text-white text-white hover-underline-animation">Contact</a></li>
+            <hr> 
+            <li><a href="about" class="nav-link text-white text-white hover-underline-animation">About</a></li>
+            <hr> 
+            <li><a href="faqs" class="nav-link text-white text-white hover-underline-animation">FAQs</a></li>
+           </ul>
          <hr> 
          <ul class="navbar-nav ms-auto">
           <li class="nav-item">
@@ -202,18 +225,18 @@ Please be aware that taxes will be charged on all purchases made within Canada. 
         <div class="col-7 col-sm-2 mb-3">
           <h5>Quick Links</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="about" class="nav-link p-0 link-light">About Us</a></li>
-            <li class="nav-item mb-2"><a href="products" class="nav-link p-0 link-light">Products</a></li>
-            <li class="nav-item mb-2"><a href="faqs" class="nav-link p-0 link-light">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="about" class="nav-link p-0 link-light hover-underline-animation">About Us</a></li>
+            <li class="nav-item mb-2"><a href="products" class="nav-link p-0 link-light hover-underline-animation">Products</a></li>
+            <li class="nav-item mb-2"><a href="faqs" class="nav-link p-0 link-light hover-underline-animation">FAQs</a></li>
           </ul>
         </div>
   
         <div class="col-7 col-sm-2 mb-3">
           <h5>Policies</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="shipping" class="nav-link p-0 link-light">Shipping Policy</a></li>
-            <li class="nav-item mb-2"><a href="refund" class="nav-link p-0 link-light">Refund Policy</a></li>
-            <li class="nav-item mb-2"><a href="productPolicy" class="nav-link p-0 link-light">Product Policy</a></li>
+            <li class="nav-item mb-2"><a href="shipping" class="nav-link p-0 link-light hover-underline-animation">Shipping Policy</a></li>
+            <li class="nav-item mb-2"><a href="refund" class="nav-link p-0 link-light hover-underline-animation">Refund Policy</a></li>
+            <li class="nav-item mb-2"><a href="productPolicy" class="nav-link p-0 link-light hover-underline-animation">Product Policy</a></li>
           </ul>
         </div>
   
