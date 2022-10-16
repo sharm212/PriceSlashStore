@@ -1,3 +1,5 @@
+RewriteCond %{QUERY_STRING} .
+RewriteRule ^$ / [QSD,R=301,L]
 RewriteEngine on
 
 
