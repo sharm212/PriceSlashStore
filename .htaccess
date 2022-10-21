@@ -1,7 +1,7 @@
 RewriteEngine on
 
 RewriteCond %{QUERY_STRING} .
-RewriteRule ^$ https://priceslashstore.com [QSD,R=301,L]
+RewriteRule ^$ / [QSD,R=301,L]
 
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R]

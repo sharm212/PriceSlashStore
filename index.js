@@ -18,8 +18,8 @@ const db = getDatabase();
 const productsRef = ref(db, 'products/');
 
 //For HomePage
-if(document.URL == "https://priceslashstore.com/"){
-recentlyAdded();}
+//if(document.URL == "https://priceslashstore.com/"){
+//recentlyAdded();}
 //For HomePage
 
 //For Products Page
@@ -70,6 +70,9 @@ else{
     }
   });
 }}
+else{
+  recentlyAdded();
+}
 
 //Function for HomePage
 function recentlyAdded(){
