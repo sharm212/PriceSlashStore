@@ -25,7 +25,7 @@ const productsRef = ref(db, 'products/');
 //For Products Page
 if(document.URL == "https://priceslashstore.com/products"){
 let start=0;
-let end = 4;
+let end = 8;
 myfunc(start,end);
 
 $( "#loadMore" ).click(function() {
