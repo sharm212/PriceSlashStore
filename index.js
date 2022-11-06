@@ -86,7 +86,7 @@ data.forEach(function(item, index, object){
   }
 });
 
-    for (let i =data.length -4; i < data.length; i++) {
+    for (let i =data.length -8; i < data.length; i++) {
     var images = data[i].productImages;
     var thumbnail = images.split(',');
     var name = data[i].productName;
