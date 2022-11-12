@@ -70,7 +70,8 @@ else{
     }
   });
 }}
-else if(document.URL == "https://priceslashstore.com/deals"){
+ if(document.URL == "https://priceslashstore.com/deals"){
+  console.log("logged");
   onValue(productsRef, (snapshot)=>{
     const data = snapshot.val();
 //Needs Optimization    
