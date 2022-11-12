@@ -80,8 +80,8 @@ data.forEach(function(item, index, object){
     object.splice(index, 1);
   }
 });
-    var productNumbers = [0,4,13,5];
-    for (let j =0; j < 4; j++) {
+    var productNumbers = [8,13,22,58,59,60,62,80,81,103,105,106,117,123,127,138];
+    for (let j =0; j < 16; j++) {
       var images = data[productNumbers[j]].productImages;
       var thumbnail = images.split(',');
       var name = data[productNumbers[j]].productName;
@@ -89,11 +89,12 @@ data.forEach(function(item, index, object){
     
       $("#listOfDealProducts").append('<div class="col-md-3">'
       +'<div class="text-center" style="padding-top:20px;">'
-      +'<a href="productDetails?'+data[productNumbers[j]].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
+      +'<a href="productDetails?'+data[i].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
       +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
       +'<p class="text-center text-muted">$'+price+'</p>'
+      +'<a role="button" class="btn btn-outline-dark" href="productDetails?'+data[i].productID+'">Buy Now</a>'
       +'</div>'
-      +'</div>');
+      +'</div>');;
       }
 
   });
@@ -127,7 +128,7 @@ data.forEach(function(item, index, object){
     +'</div>'
     +'</div>');
     }
-    var productNumbers = [0,4,13,5];
+    var productNumbers = [8,13,22,58];
     for (let j =0; j < 4; j++) {
       var images = data[productNumbers[j]].productImages;
       var thumbnail = images.split(',');
