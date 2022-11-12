@@ -20,12 +20,7 @@ const productsRef = ref(db, 'products/');
 
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
-//Needs Optimization    
-data.forEach(function(item, index, object){
-if (item.productStatus == "OutOfStock") {
-  object.splice(index, 1);
-}
-});
+
   var productNumbers = [8,13,22,58,59,60,62,80,81,103,105,106,117,123,127,138];
   for (let j =0; j < 16; j++) {
     var images = data[productNumbers[j]].productImages;

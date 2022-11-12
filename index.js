@@ -80,11 +80,11 @@ function recentlyAdded(){
   onValue(productsRef, (snapshot)=>{
     const data = snapshot.val();
 //Needs Optimization    
-data.forEach(function(item, index, object){
-  if (item.productStatus == "OutOfStock") {
-    object.splice(index, 1);
-  }
-});
+//data.forEach(function(item, index, object){
+ // if (item.productStatus == "OutOfStock") {
+ //   object.splice(index, 1);
+ // }
+//});
 
     for (let i =data.length -4; i < data.length; i++) {
     var images = data[i].productImages;
