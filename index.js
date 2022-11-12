@@ -70,6 +70,33 @@ else{
     }
   });
 }}
+else if(document.URL == "https://priceslashstore.com/deals"){
+  onValue(productsRef, (snapshot)=>{
+    const data = snapshot.val();
+//Needs Optimization    
+data.forEach(function(item, index, object){
+  if (item.productStatus == "OutOfStock") {
+    object.splice(index, 1);
+  }
+});
+    var productNumbers = [0,4,13,5];
+    for (let j =0; j < 4; j++) {
+      var images = data[productNumbers[j]].productImages;
+      var thumbnail = images.split(',');
+      var name = data[productNumbers[j]].productName;
+      var price = data[productNumbers[j]].productPrice;
+    
+      $("#listOfDealProducts").append('<div class="col-md-3">'
+      +'<div class="text-center" style="padding-top:20px;">'
+      +'<a href="productDetails?'+data[productNumbers[j]].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
+      +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
+      +'<p class="text-center text-muted">$'+price+'</p>'
+      +'</div>'
+      +'</div>');
+      }
+
+  });
+}
 else{
   recentlyAdded();
 }
