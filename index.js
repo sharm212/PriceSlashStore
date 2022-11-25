@@ -38,11 +38,12 @@ function myfunc(starts,ends){
   onValue(productsRef, (snapshot)=>{
     const data = snapshot.val();
 //Needs Optimization    
+for(var i=0; i<2; i++){
 data.forEach(function(item, index, object){
   if (item.productStatus == "OutOfStock") {
     object.splice(index, 1);
   }
-});
+});}
 
     for (let i =starts; i < ends; i++) {
 if(i==data.length){
