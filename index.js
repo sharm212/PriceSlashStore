@@ -24,6 +24,14 @@ const productsRef = ref(db, 'products/');
 
 //For Products Page
 if(document.URL == "https://priceslashstore.com/products"){
+
+//Test Code for auto load
+if ($(window).scrollTop() + $(window).height() >= 
+    $('#listOfProducts').offset().top + $('#listOfProducts').height() ) { 
+console.log("Reached End");
+} 
+//Test Code for auto load
+
 let start=0;
 let end = 8;
 myfunc(start,end);
