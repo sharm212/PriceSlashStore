@@ -23,13 +23,14 @@ const productsRef = ref(db, 'products/');
 //For HomePage
 
 //For Products Page
-if(document.URL == "https://priceslashstore.com/products"){
+if(document.URL == "http://127.0.0.1:5500/products.html"){
 
 //Test Code for auto load
-if ($(window).scrollTop() + $(window).height() >= 
-    $('#listOfProducts').offset().top + $('#listOfProducts').height() ) { 
-console.log("Reached End");
-} 
+$(window).scroll(function () {
+  if ($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+    $("#loadMore").click();
+  }
+});
 //Test Code for auto load
 
 let start=0;
