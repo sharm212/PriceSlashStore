@@ -21,7 +21,7 @@ const productsRef = ref(db, 'products/');
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
 
-  var productNumbers = [147,150,138,153,13,14,105,16,8,103,123,4,80,58,154,102,50,56,54,23,144,28,62,41];
+  var productNumbers = [150,138,153,45,13,14,105,16,8,103,123,4,80,58,154,102,50,56,54,23,144,28,62,41];
   for (let j =0; j < 24; j++) {
     var images = data[productNumbers[j]].productImages;
     var thumbnail = images.split(',');
