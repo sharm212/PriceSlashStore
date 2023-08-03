@@ -15,6 +15,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 var queryString = location.search.substring(1);
+//This removes any characters and extracts the number
+queryString = queryString.replace(/^\D+/g, '');
 const productsRef = ref(db, 'products/'+(parseInt(queryString)-1));
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
