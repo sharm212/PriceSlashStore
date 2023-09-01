@@ -25,7 +25,6 @@ var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,k
 var search = vars.search.replace(/\+/g," ");
 //search = search.toLowerCase();
 //const searchedTitle = search.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
-
 $("#searchTitle").text("Product Results For: "+search);
 $("#productSearchLink").attr("href","https://priceslashstore.com/searchProducts.html?search="+vars.search);
 
@@ -42,22 +41,25 @@ function myfunc(starts,ends){
   
   onValue(productsRef, (snapshot)=>{
     const data = snapshot.val();
-
 //Needs Optimization    
 //Misses Some Items - Needs Fixing
+
 data.forEach(function(item, index, object){
   if (item.productStatus == "OutOfStock") {
     object.splice(index, 1);
   }
 });
+var arr = search.split(" ").map(function(item) {
+  return item.trim();
+});
+for(var ind=0; ind<arr.length; ind++){
 for(var i=0; i<10; i++){
 data.forEach(function(item, index, object){
-    if (item.productName.toLowerCase().includes(search.toLowerCase(),0)==false) {
-     // console.log(item.productName)
+    if (item.productName.toLowerCase().includes(arr[ind].toLowerCase(),0)==false) {
         object.splice(index, 1);
-    }
+    } 
   });
-}
+}}
     //If Statement to check if no results are found
      if(data.length==0){
          $("#searchTitle").text("No Results Found For: "+search);
