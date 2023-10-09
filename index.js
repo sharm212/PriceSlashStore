@@ -21,9 +21,8 @@ const productsRef = ref(db, 'products/');
 //if(document.URL == "https://priceslashstore.com/"){
 //recentlyAdded();}
 //For HomePage
-
 //For Products Page
-if(document.URL.contains("https://priceslashstore.com/products")){
+if(document.URL.indexOf("https://priceslashstore.com/products")>0){
 
 //Test Code for auto load
 $(window).scroll(function () {
