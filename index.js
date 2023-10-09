@@ -23,7 +23,7 @@ const productsRef = ref(db, 'products/');
 //For HomePage
 
 //For Products Page
-if(document.URL == "https://priceslashstore.com/products"){
+if(document.URL.contains("https://priceslashstore.com/products")){
 
 //Test Code for auto load
 $(window).scroll(function () {
