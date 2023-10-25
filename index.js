@@ -108,7 +108,7 @@ function recentlyAdded(){
     +'</div>'
     +'</div>');
     }
-    var productNumbers = [138,102,229,150];
+    var productNumbers = [138,229,150,206];
     for (let j =0; j < 4; j++) {
       var images = data[productNumbers[j]].productImages;
       var thumbnail = images.split(',');
