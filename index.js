@@ -50,7 +50,7 @@ function myfunc(starts,ends){
 for(var i=0; i<1; i++){
 data1.forEach(function(item, index, object){
   if (item.productStatus == "OutOfStock") {
-    object.splice(index, 1);
+    
   }
   else{
 data.push(item);
