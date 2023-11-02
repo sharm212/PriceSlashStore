@@ -22,7 +22,7 @@ const productsRef = ref(db, 'products/');
 //recentlyAdded();}
 //For HomePage priceslashstore.com/products
 //For Products Page
-if(document.URL.indexOf("127.0.0.1:5500/products.html")>0){
+if(document.URL.indexOf("priceslashstore.com/products")>0){
 
 //Test Code for auto load
 $(window).scroll(function () {
