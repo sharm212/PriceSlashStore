@@ -20,9 +20,9 @@ const productsRef = ref(db, 'products/');
 //For HomePage
 //if(document.URL == "https://priceslashstore.com/"){
 //recentlyAdded();}
-//For HomePage
+//For HomePage priceslashstore.com/products
 //For Products Page
-if(document.URL.indexOf("priceslashstore.com/products")>0){
+if(document.URL.indexOf("127.0.0.1:5500/products.html")>0){
 
 //Test Code for auto load
 $(window).scroll(function () {
@@ -44,12 +44,16 @@ $( "#loadMore" ).click(function() {
 function myfunc(starts,ends){
   
   onValue(productsRef, (snapshot)=>{
-    const data = snapshot.val();
+    const data1 = snapshot.val();
+    const data = [];
 //Needs Optimization    
-for(var i=0; i<2; i++){
-data.forEach(function(item, index, object){
+for(var i=0; i<1; i++){
+data1.forEach(function(item, index, object){
   if (item.productStatus == "OutOfStock") {
     object.splice(index, 1);
+  }
+  else{
+data.push(item);
   }
 });}
 
