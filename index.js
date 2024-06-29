@@ -11,10 +11,6 @@ const firebaseConfig = {
   appId: "1:532707340418:web:7deb612dda4aac3735849b"
 };
 
-$("iframe").ready(function(){
-  $("iframe").addClass("rounded shadow");
-})
-
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const productsRef = ref(db, 'products/');
