@@ -8,9 +8,13 @@
     <meta name="description" content="Ready to turn your old games into cash? At Price Slash, we offer the highest payouts for your games, far surpassing what others offer. Plus, we ensure you get your money quickly and hassle-free. Don't wait—trade in your games with us today and see how much more you can earn!">
     <meta name="generator" content="Hugo 0.98.0">
     <title>Sell Your Games | Price Slash</title>
+    <script type="module" src="value.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="canonical" href="https://priceslashstore.com/sell">
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="favicon.png">
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 <meta property="og:image" content="favicon.png" />
 <meta property="og:title" content="Sell Your Games | Price Slash" />
 <meta property=“og:type” content = “website” />
@@ -210,12 +214,10 @@ background-color: black;
   <div class="container rounded shadow" style="border:1px solid white;">
     <p class="text-center lead" style="padding-left:15px; padding-right:15px; padding-top:30px; color:white;">Find what your games are worth</p>
 
-    <form class="d-flex justify-content-center" role="search" target="hiddenFrame" method="GET" style="padding: 20px;">
-                <input style="border-bottom-right-radius: 0px; border-top-right-radius: 0px; border-right:0px; color:white; border-color:white; background-color: rgb(0 0 0 / 50%);" class="form-control" type="text" name="search" placeholder="Search" aria-label="Search" required>
-                <button style="border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-left: 0px;" class="btn btn-outline-light" type="submit" value="Submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
-                </button>
-              </form>
+    <div class="p-4"><select id="select-tools" placeholder="Search"></select>
+    </div>
+             
+  
               <a href="Shipping Document.pdf" target="_blank" type="button" class="btn btn-outline-dark" style="margin-bottom:30px; border-color:white; color:white;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" class="bi bi-download" viewBox="0 0 16 16">
   <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"></path>
