@@ -30,8 +30,8 @@ onValue(productsRef, (snapshot)=>{
         render: {
             option: function(data, escape) {
                 return '<div>' +
-                        '<span class="title">' + escape(data.productName) + '</span>' +
-                        ' - $'+'<span class="url">' + escape(data.productPrice) + '</span>' +
+                        '<span class="title align-items-start">' + escape(data.productName) + '</span>' +
+                        ' - $'+'<span class="url text-end">' + escape(data.productPrice) + '</span>' +
                     '</div>';
             },
             item: function(data, escape) {
