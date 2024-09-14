@@ -40,14 +40,17 @@ $( "#loadMore" ).click(function() {
 function myfunc(starts,ends){
   
   onValue(productsRef, (snapshot)=>{
-    const data = snapshot.val();
+    const data1 = snapshot.val();
+    const data = [];
 //Needs Optimization    
 //Misses Some Items - Needs Fixing
 
-data.forEach(function(item, index, object){
+data1.forEach(function(item, index, object){
   if (item.productStatus == "OutOfStock") {
-    object.splice(index, 1);
   }
+  else{
+    data.push(item);
+      }
 });
 var arr = search.split(" ").map(function(item) {
   return item.trim();
