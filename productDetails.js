@@ -29,6 +29,57 @@ onValue(productsRef, (snapshot)=>{
     var prodDesc = data.productDescription.replace(/<><>/g, "\n");
     $("meta[property='og:description']").attr("content", prodDesc.replace(/<>/g, "\n"));
     
+//This is a try for adding rich content
+/////////////////////////////////////////////////////////////////////
+// Example of dynamically loading product data and injecting JSON-LD
+
+// Assuming you have some dynamic way of getting product data (e.g., from an API or database)
+const productData = {
+  name: data.productName,
+  image: "https://priceslashstore.com/productImages/"+allImages[0],
+  description: data.productDescription.replace(/<><>/g, " | ").replace(/<>/g, " | "),
+  sku: data.productID,
+  price: data.productPrice,
+  currency: "CAD",
+  availability: data.productStatus,
+  url: "https://priceslashstore.com/productDetails?"+data.productID,
+  condition: "NewCondition"
+};
+
+// Function to inject the JSON-LD structured data into the page
+function injectStructuredData(product) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": product.image,
+    "description": product.description,
+    "sku": product.sku,
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": product.currency,
+      "price": product.price,
+      "availability": `https://schema.org/${product.availability}`,
+      "url": product.url,
+      "itemCondition": `https://schema.org/${product.condition}`
+    }
+  };
+
+  // Convert the structured data to JSON-LD format
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(structuredData);
+  
+  // Append the JSON-LD script to the head of the page
+  document.head.appendChild(script);
+}
+
+// Inject the structured data when the product page is dynamically generated
+injectStructuredData(productData);
+
+
+/////////////////////////////////////////////////////////////////////
+//
 
   if(data!=null){
   $("#mainImage").append(
