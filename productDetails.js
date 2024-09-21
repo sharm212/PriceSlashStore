@@ -26,7 +26,8 @@ onValue(productsRef, (snapshot)=>{
     $("meta[property='og:title']").attr("content", data.productName);
     $("meta[property='og:url']").attr("content", "https://priceslashstore.com/productDetails?"+data.productID);
     $("meta[property='og:image']").attr("content", "https://priceslashstore.com/productImages/"+allImages[0]);
-    $("meta[property='og:description']").attr("content", data.productDescription.replace(/<><>/g, "\n").replace(/<>/g, "\n"));
+    var prodDesc = data.productDescription.replace(/<><>/g, "\n");
+    $("meta[property='og:description']").attr("content", prodDesc.replace(/<>/g, "\n"));
     
 
   if(data!=null){
