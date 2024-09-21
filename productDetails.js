@@ -61,7 +61,35 @@ function injectStructuredData(product) {
       "price": product.price,
       "availability": `https://schema.org/${product.availability}`,
       "url": product.url,
-      "itemCondition": `https://schema.org/${product.condition}`
+      "itemCondition": `https://schema.org/${product.condition}`,
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "CA"  // Shipping only to Canada
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 2,
+            "unitCode": "DAY"  // Dispatch time: 1-2 days
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 10,
+            "unitCode": "DAY"  // Delivery time: 1-10 days
+          }
+        },
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0.00",  // Free shipping
+          "currency": product.currency
+        },
+        "shippingLabel": "Free Standard Shipping"
+      }
     }
   };
 
