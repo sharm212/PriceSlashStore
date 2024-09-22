@@ -265,27 +265,5 @@ background-color: black;
 
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          const path = window.location.pathname;
-    
-          // Check if the URL follows the SEO-friendly format
-          if (path.startsWith('/productDetails/')) {
-              const urlParts = path.split('/');
-              const productID = urlParts[2];  // Extract product ID from the SEO-friendly URL
-    
-              if (productID) {
-                  // Replace the current URL without adding to browser history
-                  window.history.replaceState({}, '', `https://priceslashstore.com/productDetails?${productID}`);
-    
-                  // Optionally, you can trigger any dynamic content loading if needed
-                  // (since we are not refreshing the page here).
-                  // For example, if you need to dynamically load product data:
-                  // loadProductDetails(productID);
-              }
-          }
-      });
-    </script> 
   </body>
 </html>
