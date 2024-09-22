@@ -37,7 +37,8 @@ function getProductIDFromURL(url) {
   return parts[productDetailsIndex + 1]; // This should be the product ID
 }
 //Testing new method
-
+console.log("*******");
+console.log(productID);
 const productsRef = ref(db, 'products/'+(parseInt(productID)-1));
 onValue(productsRef, (snapshot)=>{
   const data = snapshot.val();
