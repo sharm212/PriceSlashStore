@@ -15,22 +15,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
-document.addEventListener("DOMContentLoaded", function() {
-  const path = window.location.pathname;
+// document.addEventListener("DOMContentLoaded", function() {
+//   const path = window.location.pathname;
   
-  // Check if the URL has the SEO-friendly format
-  if (path.startsWith('/productDetails/')) {
-      const urlParts = path.split('/');
+//   // Check if the URL has the SEO-friendly format
+//   if (path.startsWith('/productDetails/')) {
+//       const urlParts = path.split('/');
       
-      // Assuming URL structure is /productDetails/{id}/{slug}, extract the ID
-      const productID = urlParts[2]; // '405' in this case
+//       // Assuming URL structure is /productDetails/{id}/{slug}, extract the ID
+//       const productID = urlParts[2]; // '405' in this case
 
-      if (productID) {
-          // Redirect to productDetails.html with the correct query parameter
-          window.location.href = `https://priceslashstore.com/productDetails?${productID}`;
-      }
-  }
-});
+//       if (productID) {
+//           // Redirect to productDetails.html with the correct query parameter
+//           window.location.href = `https://priceslashstore.com/productDetails?${productID}`;
+//       }
+//   }
+// });
 
 
 
