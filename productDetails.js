@@ -1,6 +1,25 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 
+// Redirection logic to handle SEO-friendly URLs
+document.addEventListener("DOMContentLoaded", function() {
+  const path = window.location.pathname;
+
+  // Check if the URL has the SEO-friendly format
+  if (path.startsWith('/productDetails/')) {
+      const urlParts = path.split('/');
+      
+      // Assuming URL structure is /productDetails/{id}/{slug}, extract the ID
+      const productID = urlParts[2]; // '405' in this case
+
+      if (productID) {
+          // Redirect to productDetails with the product ID
+          window.location.href = `https://priceslashstore.com/productDetails?${productID}`;
+          return; // Prevent further execution of the script
+      }
+  }
+});
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDHLtzB6wRgh1iBH44Iwn-uEehRruAdZ8A",
@@ -15,52 +34,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
-// document.addEventListener("DOMContentLoaded", function() {
-//   const path = window.location.pathname;
-  
-//   // Check if the URL has the SEO-friendly format
-//   if (path.startsWith('/productDetails/')) {
-//       const urlParts = path.split('/');
-      
-//       // Assuming URL structure is /productDetails/{id}/{slug}, extract the ID
-//       const productID = urlParts[2]; // '405' in this case
-
-//       if (productID) {
-//           // Redirect to productDetails.html with the correct query parameter
-//           window.location.href = `https://priceslashstore.com/productDetails?${productID}`;
-//       }
-//   }
-// });
-
-
-
-
-
 var queryString = location.search.substring(1);
 //This removes any characters and extracts the number
 queryString = queryString.replace(/^\D+/g, '');
 
-//Testing new method
-
-// Example usage with a URL that might come with extra query parameters
-//const currentURL = window.location.href; // This would typically be the current page's URL
-//const productID = getProductIDFromURL(currentURL);
-
-//function getProductIDFromURL(url) {
-  // Get the pathname from the URL (this will exclude any query parameters or fragments)
-//  const pathname = new URL(url).pathname;
-  
-  // Split the path by slashes
- // const parts = pathname.split('/');
-  
-  // Find the part after 'productDetails'
- // const productDetailsIndex = parts.indexOf('productDetails');
-  
-  // Return the next part (the product ID)
- // return parts[productDetailsIndex + 1]; // This should be the product ID
-//}
-//Testing new method
-console.log("*******");
 
 const productsRef = ref(db, 'products/'+(parseInt(queryString)-1));
 onValue(productsRef, (snapshot)=>{
