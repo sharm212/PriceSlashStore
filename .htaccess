@@ -8,8 +8,8 @@ RewriteRule ^ /%1 [NC,L,R]
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
-# Handle productDetails URLs with product ID and slug, rewriting to productDetails.html or productDetails with ?ID
-RewriteRule ^productDetails/([0-9]+)/([a-zA-Z0-9-]+)/?$ /productDetails.html?$1 [L,QSA]
+# Handle productDetails URLs with product ID and slug, rewriting to productDetails?ID
+RewriteRule ^productDetails/([0-9]+)/([a-zA-Z0-9-]+)/?$ /productDetails?$1 [L,QSA]
 
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>
