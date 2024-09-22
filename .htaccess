@@ -1,6 +1,6 @@
 RewriteEngine On
 
-# Redirect .html requests to URLs without .html (if applicable)
+# Remove .html extension from URLs (if applicable)
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R]
 
@@ -8,7 +8,7 @@ RewriteRule ^ /%1 [NC,L,R]
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
-# Handle productDetails URLs with product ID and slug, rewriting to productDetails?ID
+# Handle productDetails URLs with product ID and slug, rewriting to productDetails?ID (without .html)
 RewriteRule ^productDetails/([0-9]+)/([a-zA-Z0-9-]+)/?$ /productDetails?$1 [L,QSA]
 
 ## EXPIRES CACHING ##
