@@ -1,13 +1,15 @@
-RewriteEngine on
+RewriteEngine On
 
-RewriteCond %{QUERY_STRING} .
-RewriteRule ^$ / [QSD,R=301,L]
-
+# Redirect .html requests to URLs without .html
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R]
 
+# Serve files with .html extension by default
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+
+# Handle productDetails URLs with product ID and slug
+RewriteRule ^productDetails/([0-9]+)/([a-zA-Z0-9-]+)/?$ /productDetails.php?id=$1 [L,QSA]
 
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>
