@@ -14,6 +14,21 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
+
+document.addEventListener("DOMContentLoaded", function() {
+  const urlParts = window.location.pathname.split('/');
+  if (urlParts.length >= 3 && urlParts[1] === 'productDetails') {
+      const productID = urlParts[2]; // Extract the product ID from the URL
+      if (productID) {
+          // Redirect to the original URL format
+          window.location.href = `/productDetails?${productID}`;
+      }
+  }
+});
+
+
+
+
 //var queryString = location.search.substring(1);
 //This removes any characters and extracts the number
 //queryString = queryString.replace(/^\D+/g, '');
