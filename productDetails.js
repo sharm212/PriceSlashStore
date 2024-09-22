@@ -16,11 +16,17 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
 document.addEventListener("DOMContentLoaded", function() {
-  const urlParts = window.location.pathname.split('/');
-  if (urlParts.length >= 3 && urlParts[1] === 'productDetails') {
-      const productID = urlParts[2]; // Extract the product ID from the URL
+  const path = window.location.pathname;
+  
+  // Check if the URL has the SEO-friendly format
+  if (path.startsWith('/productDetails/')) {
+      const urlParts = path.split('/');
+      
+      // Assuming URL structure is /productDetails/{id}/{slug}, extract the ID
+      const productID = urlParts[2]; // '405' in this case
+
       if (productID) {
-          // Redirect to the original URL format
+          // Redirect to productDetails.html with the correct query parameter
           window.location.href = `/productDetails?${productID}`;
       }
   }
@@ -29,9 +35,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
 //var queryString = location.search.substring(1);
 //This removes any characters and extracts the number
 //queryString = queryString.replace(/^\D+/g, '');
+
 //Testing new method
 
 // Example usage with a URL that might come with extra query parameters
