@@ -1,26 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 
-// Redirection logic to handle SEO-friendly URLs
-document.addEventListener("DOMContentLoaded", function() {
-  const path = window.location.pathname;
-
-  // Check if the URL has the SEO-friendly format
-  if (path.startsWith('/productDetails/')) {
-      const urlParts = path.split('/');
-      
-      // Assuming URL structure is /productDetails/{id}/{slug}, extract the ID
-      const productID = urlParts[2]; // '405' in this case
-
-      if (productID) {
-          // Redirect to productDetails with the product ID
-          window.location.href = `https://priceslashstore.com/productDetails?${productID}`;
-          return; // Prevent further execution of the script
-      }
-  }
-});
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyDHLtzB6wRgh1iBH44Iwn-uEehRruAdZ8A",
   authDomain: "price-slash-3dad0.firebaseapp.com",

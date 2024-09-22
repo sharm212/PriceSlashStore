@@ -266,6 +266,21 @@ background-color: black;
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          const path = window.location.pathname;
+    
+          // Check if the URL follows the SEO-friendly format
+          if (path.startsWith('/productDetails/')) {
+              const urlParts = path.split('/');
+              const productID = urlParts[2];  // Extract product ID from the SEO-friendly URL
+    
+              if (productID) {
+                  // Redirect to the correct URL format with the product ID
+                  window.location.href = `https://priceslashstore.com/productDetails?${productID}`;
+              }
+          }
+      });
+    </script>   
   </body>
 </html>
