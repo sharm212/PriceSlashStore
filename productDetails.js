@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (productID) {
           // Redirect to productDetails.html with the correct query parameter
-          window.location.href = `/productDetails?${productID}`;
+          window.location.href = `https://priceslashstore.com/productDetails?${productID}`;
       }
   }
 });
