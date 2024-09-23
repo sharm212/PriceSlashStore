@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 window.prerenderReady = false;
-
+console.log('Prerender Ready flag set to false');
 const firebaseConfig = {
   apiKey: "AIzaSyDHLtzB6wRgh1iBH44Iwn-uEehRruAdZ8A",
   authDomain: "price-slash-3dad0.firebaseapp.com",
@@ -31,7 +31,10 @@ onValue(productsRef, (snapshot)=>{
     $("meta[property='og:image']").attr("content", "https://priceslashstore.com/productImages/"+allImages[0]);
     var prodDesc = data.productDescription.replace(/<><>/g, "\n");
     $("meta[property='og:description']").attr("content", prodDesc.replace(/<>/g, "\n"));
-    
+    console.log('Firebase data fetched: ', data);
+
+    window.prerenderReady = true;
+    console.log('Prerender Ready flag set to true');
 //This is a try for adding rich content
 /////////////////////////////////////////////////////////////////////
 // Example of dynamically loading product data and injecting JSON-LD
@@ -150,5 +153,4 @@ $("#BuyNowButton").off('click');
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
 }
-window.prerenderReady = true;
 });
