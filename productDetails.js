@@ -28,7 +28,8 @@ onValue(productsRef, (snapshot)=>{
     var allImages = images.split(',');
 
     $("meta[property='og:title']").attr("content", data.productName);
-    $("meta[property='og:url']").attr("content", "https://priceslashstore.com/productDetails?"+data.productID);
+    
+    $("meta[property='og:url']").attr("content", "https://priceslashstore.com/productDetails/"+data.productID+'/'+data.productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-'));
     $("meta[property='og:image']").attr("content", "https://priceslashstore.com/productImages/"+allImages[0]);
     var prodDesc = data.productDescription.replace(/<><>/g, "\n");
     $("meta[property='og:description']").attr("content", prodDesc.replace(/<>/g, "\n"));
@@ -48,7 +49,7 @@ const productData = {
   price: data.productPrice,
   currency: "CAD",
   availability: data.productStatus,
-  url: "https://priceslashstore.com/productDetails?"+data.productID,
+  url: "https://priceslashstore.com/productDetails/"+data.productID+'/'+data.productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-'),
   condition: "NewCondition"
 };
 
@@ -136,7 +137,7 @@ $("#productPrice").text("$"+data.productPrice+ " CAD");
 $("#productPriceModal").text("$"+data.productPrice+ " CAD");
 $("#SKU").text("SKU: "+data.productID);
 var description = data.productDescription.replace(/<>/g,"<br>");
-$("#productShareLink").attr("href","https://priceslashstore.com/productDetails?"+data.productID);
+$("#productShareLink").attr("href","https://priceslashstore.com/productDetails/"+data.productID+'/'+data.productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-'));
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 
