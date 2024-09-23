@@ -34,8 +34,7 @@ onValue(productsRef, (snapshot)=>{
     $("meta[property='og:description']").attr("content", prodDesc.replace(/<>/g, "\n"));
     console.log('Firebase data fetched: ', data);
 
-    window.prerenderReady = true;
-    console.log('Prerender Ready flag set to true');
+
 //This is a try for adding rich content
 /////////////////////////////////////////////////////////////////////
 // Example of dynamically loading product data and injecting JSON-LD
@@ -140,6 +139,13 @@ var description = data.productDescription.replace(/<>/g,"<br>");
 $("#productShareLink").attr("href","https://priceslashstore.com/productDetails?"+data.productID);
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
+
+            // Add a delay before setting prerenderReady to true
+            setTimeout(() => {
+              console.log('Prerender Ready flag set to true');
+              window.prerenderReady = true;  // Signal to Prerender.io that the page is ready
+          }, DELAY_TIME);  // Delay before signaling that the page is ready
+    console.log('Prerender Ready flag set to true');
 
 //New Feature
 if(data.productStatus == "OutOfStock"){
