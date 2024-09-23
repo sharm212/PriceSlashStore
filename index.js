@@ -80,9 +80,8 @@ else{
       $( "#loadMore" ).remove();
       //Test
       data1.forEach(function(item, index, object){
-console.log("https://priceslashstore.com/productDetails/"+item.productID+"/"+item.productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-'));
-      });}
-      
+        console.log("https://priceslashstore.com/productDetails/"+item.productID+"/"+item.productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-'));
+      });
       //Test
       return
     }
