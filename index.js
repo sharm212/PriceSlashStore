@@ -68,7 +68,7 @@ else{
     var price = data[i].productPrice;
     $("#listOfProducts").append('<div class="col-md-3">'
     +'<div class="text-center" style="padding-top:20px;">'
-    +'<a href="productDetails?'+data[i].productID+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
+    +'<a href="productDetails/'+data[i].productID+'/'+data[i].productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-')+'"><img src="productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
     +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
     +'<p class="text-center text-muted">$'+price+'</p>'
     +'<a role="button" class="btn btn-outline-dark" href="productDetails?'+data[i].productID+'">Buy Now</a>'
