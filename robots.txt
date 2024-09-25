@@ -1,0 +1,13 @@
+# Allow all bots to crawl the site
+User-agent: *
+Disallow: /searchProducts
+
+# Allow crawling of dynamic product pages
+Allow: /productDetails/
+
+# Block specific bots if necessary
+User-agent: BadBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://priceslashstore.com/sitemap.xml
