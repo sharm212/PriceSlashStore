@@ -68,6 +68,17 @@ function injectStructuredData(product) {
       "price": product.price,
       "availability": `https://schema.org/${product.availability}`,
       "url": product.url,
+      "seller": {
+        "@type": "Organization",
+        "name": "Price Slash"
+      },
+      "returnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "CA",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": "7",
+        "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+      },
       "itemCondition": `https://schema.org/${product.condition}`,
       "shippingDetails": {
         "@type": "OfferShippingDetails",
