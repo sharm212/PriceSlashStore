@@ -75,10 +75,14 @@ $("#noOfProducts").text(data.length + " results");
 
 
     for (let i =starts; i < ends; i++) {
+      
 if(i==data.length){
   $( "#loadMore" ).attr("disabled", true);
   $( "#loadMore" ).hide();
   return
+}
+if (i >= sortedData.length) {
+  break; // Exit the loop if we've processed all available items
 }
 
 else{
