@@ -20,7 +20,7 @@ const productsRef = ref(db, 'products/');
 //recentlyAdded();}
 //For HomePage priceslashstore.com/products
 //For Products Page
-if(document.URL.indexOf("priceslashstore.com/products")>0){
+if(document.URL.indexOf("127.0.0.1:5500/products.html")>0){
 
 //Test Code for auto load
 $(window).scroll(function () {
@@ -32,6 +32,19 @@ $(window).scroll(function () {
 
 let start=0;
 let end = 8;
+
+document.getElementById("sortPrice").addEventListener("change", function() {
+  // Clear the existing products
+  document.getElementById("listOfProducts").innerHTML = '';
+  
+  // Reset the start and end variables for paging
+  start = 0;
+  end = 8;
+  $( "#loadMore" ).attr("disabled", false);
+  $("#loadMore").show();
+  // Call the function to reload products based on the new sort option
+  myfunc(start, end);
+});
 myfunc(start,end);
 
 $( "#loadMore" ).click(function() {
@@ -40,15 +53,10 @@ $( "#loadMore" ).click(function() {
  myfunc(start,end);
   });
 function myfunc(starts,ends){
-  
-  onValue(productsRef, (snapshot)=>{
+   onValue(productsRef, (snapshot)=>{
     const data1 = snapshot.val();
     const data = [];
-          //Test
-          data1.forEach(function(item, index, object){
-            console.log("https://priceslashstore.com/productDetails/"+item.productID+"/"+item.productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-'));
-          });
-          //Test
+
 //Needs Optimization    
 for(var i=0; i<1; i++){
 data1.forEach(function(item, index, object){
@@ -59,30 +67,43 @@ data1.forEach(function(item, index, object){
 data.push(item);
   }
 });}
+$("#noOfProducts").text(data.length + " results");
+ const dataLowToHigh = data.slice().sort((a, b) => a.productPrice - b.productPrice);
+  const dataHighToLow = data.slice().sort((a, b) => b.productPrice - a.productPrice);
+ const sortOption = document.getElementById("sortPrice").value;
+ const sortedData = (sortOption === "lowToHigh") ? dataLowToHigh : dataHighToLow;
+
 
     for (let i =starts; i < ends; i++) {
 if(i==data.length){
-  $( "#loadMore" ).remove();
+  $( "#loadMore" ).attr("disabled", true);
+  $( "#loadMore" ).hide();
   return
 }
 
 else{
-    var images = data[i].productImages;
+ 
+    var images = sortedData[i].productImages;
     var thumbnail = images.split(',');
-    var name = data[i].productName;
-    var price = data[i].productPrice;
+    var name = sortedData[i].productName;
+    var price = sortedData[i].productPrice;
     $("#listOfProducts").append('<div class="col-md-3">'
     +'<div class="text-center" style="padding-top:20px;">'
-    +'<a href="productDetails/'+data[i].productID+'/'+data[i].productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-')+'"><img src="https://priceslashstore.com/cdn-cgi/image/width=auto,format=auto,quality=auto/https://priceslashstore.com/productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
+    +'<a href="productDetails/'+sortedData[i].productID+'/'+sortedData[i].productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-')+'"><img src="https://priceslashstore.com/cdn-cgi/image/width=auto,format=auto,quality=auto/https://priceslashstore.com/productImages/'+thumbnail[0]+'"class="img-fluid"></a>'
     +'<p class="text-center text-muted" style="padding-top: 25px;">'+name+'</p>'
     +'<p class="text-center text-muted">$'+price+'</p>'
-    +'<a role="button" class="btn btn-outline-dark" href="productDetails?'+data[i].productID+'">Buy Now</a>'
+    +'<a role="button" class="btn btn-outline-dark" href="productDetails?'+sortedData[i].productID+'">Buy Now</a>'
     +'</div>'
-    +'</div>');}
+    +'</div>');
+  }
+  
     }
-    if(ends==data.length){
-      $( "#loadMore" ).remove();
-      return
+    if (ends >= sortedData.length) {
+      $( "#loadMore" ).attr("disabled", true);
+      $("#loadMore").hide();  // Hide if all products are loaded
+    } else {
+      $( "#loadMore" ).attr("disabled", false);
+      $("#loadMore").show();  // Show if more products are available
     }
   });
 }}
