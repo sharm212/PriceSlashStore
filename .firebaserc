@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "price-slash-3dad0"
-  }
+    "default": "price-slash-3dad0",
+    "staging": "price-slash-3dad0"
+  },
+  "targets": {},
+  "etags": {}
 }

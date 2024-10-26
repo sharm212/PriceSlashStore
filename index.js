@@ -1,11 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 
-const functions = require("firebase-functions");
-const { submitShippingForm } = require("./shippingform");
-
-exports.submitShippingForm = submitShippingForm;
-
 const firebaseConfig = {
   apiKey: "AIzaSyDHLtzB6wRgh1iBH44Iwn-uEehRruAdZ8A",
   authDomain: "price-slash-3dad0.firebaseapp.com",
