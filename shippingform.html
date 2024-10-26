@@ -398,23 +398,24 @@
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+// Function to prefill form fields from URL query parameters
+function prefillFields() {
+    const params = new URLSearchParams(window.location.search);
+    const fullName = params.get('fullName');
+    const email = params.get('email');
+  
+    if (fullName) {
+        document.getElementById('fullName').value = fullName;
+    }
+    if (email) {
+        document.getElementById('emailAddress').value = email;
+    }
+}
 
-        // Function to prefill form fields from URL query parameters
-        function prefillFields() {
-          const params = new URLSearchParams(window.location.search);
-          const fullName = params.get('fullName');
-          const email = params.get('email');
-        
-          if (fullName) {
-            document.getElementById('fullName').value = fullName;
-          }
-          if (email) {
-            document.getElementById('emailAddress').value = email;
-          }
-        }
-        // Validation function to check if all fields are filled
-function validateAndSubmit() {
+// Validation function to check if all fields are filled and then submit the form
+async function validateAndSubmit(event) {
     event.preventDefault();  // Prevent default form submission
+
     // Get field values
     const fullName = document.getElementById("fullName").value;
     const email = document.getElementById("emailAddress").value;
@@ -424,56 +425,37 @@ function validateAndSubmit() {
     const province = document.getElementById("province").value;
 
     // Check if all required fields are non-empty
-    if (fullName == "" || email == "" || address == "" || city == "" || postalCode == "" || province == "") {
-       // If fields are missing, alert the user
-       alert("Please fill in all required fields before submitting.");
-    } else {
-        // If all fields are filled, call the onSubmit function
-        onSubmit();
+    if (fullName === "" || email === "" || address === "" || city === "" || postalCode === "" || province === "") {
+        alert("Please fill in all required fields before submitting.");
+        return; // Stop execution if validation fails
+    }
+
+    // If validation passes, proceed with the submission
+    try {
+        const response = await fetch("https://us-central1-price-slash-3dad0.cloudfunctions.net/submitShippingForm", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ fullName, email, address, city, postalCode, province }),
+        });
+
+        if (response.ok) {
+            alert("Information submitted successfully!");
+        } else {
+            alert("Failed to submit information.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while submitting the information.");
     }
 }
-        function onSubmit() {
-          // When reCAPTCHA is verified, submit form data
-          document.getElementById("shippingForm").submit();
-        }
-        
-        
-        // Initialize on window load
-        window.onload = function() {
-          prefillFields(); // Prefill fields from URL
-          document.querySelector(".button").addEventListener("click", async function (event) {
-            event.preventDefault();  // Prevent default form submission
 
-            // Gather form data
-            const fullName = document.getElementById("fullName").value;
-            const email = document.getElementById("emailAddress").value;
-            const address = document.getElementById("address").value;
-            const city = document.getElementById("city").value;
-            const postalCode = document.getElementById("zipcode").value;
-            const province = document.getElementById("province").value;
-        
-            // Send data to Firebase function
-            try {
-              const response = await fetch("https://us-central1-price-slash-3dad0.cloudfunctions.net/submitShippingForm", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ fullName, email, address, city, postalCode, province }),
-              });
-        
-              if (response.ok) {
-                // Show success alert if the data is stored
-                alert("Information submitted successfully!");
-              } else {
-                alert("Failed to submit information.");
-              }
-            } catch (error) {
-              console.error("Error:", error);
-              alert("An error occurred while submitting the information.");
-            }
-          });
-        };
+// Initialize on window load
+window.onload = function() {
+    prefillFields(); // Prefill fields from URL
+    document.querySelector(".button").addEventListener("click", validateAndSubmit); // Attach validateAndSubmit to button click
+};
           </script>
       
   </body>
