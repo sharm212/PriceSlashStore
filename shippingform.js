@@ -1,9 +1,8 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
-if (!admin.apps.length) {
-  admin.initializeApp();
-}
+admin.initializeApp();
+
 const db = admin.firestore();
 
 exports.submitShippingForm = functions.https.onRequest(async (req, res) => {
