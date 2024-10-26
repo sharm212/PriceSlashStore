@@ -349,7 +349,7 @@
       <hr>
       <button class="g-recaptcha button" 
         data-sitekey="6Lc8W2wqAAAAABa8lAz_ZRny7n1-U9WYx1LznmRx" 
-        data-callback="onSubmit">Submit</button>
+        data-callback="validateAndSubmit">Submit</button>
     </div>
   </figure>
 
@@ -412,6 +412,25 @@
             document.getElementById('emailAddress').value = email;
           }
         }
+        // Validation function to check if all fields are filled
+function validateAndSubmit() {
+    // Get field values
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("emailAddress").value;
+    const address = document.getElementById("address").value;
+    const city = document.getElementById("city").value;
+    const postalCode = document.getElementById("zipcode").value;
+    const province = document.getElementById("province").value;
+
+    // Check if all required fields are non-empty
+    if (fullName && email && address && city && postalCode && province) {
+        // If all fields are filled, call the onSubmit function
+        onSubmit();
+    } else {
+        // If fields are missing, alert the user
+        alert("Please fill in all required fields before submitting.");
+    }
+}
         function onSubmit() {
           // When reCAPTCHA is verified, submit form data
           document.getElementById("shippingForm").submit();
