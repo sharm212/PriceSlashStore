@@ -1,23 +1,30 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
 const functions = require("firebase-functions");
-const { submitShippingForm } = require("./shippingform");
+const admin = require("firebase-admin");
+const cors = require("cors")({ origin: true });
 
-exports.submitShippingForm = submitShippingForm;
+admin.initializeApp();
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+const db = admin.firestore();
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+exports.submitShippingForm = functions.https.onRequest((req, res) => {
+  cors(req, res, async () => {
+    if (req.method !== "POST") {
+      return res.status(405).send("Method Not Allowed");
+    }
+
+    try {
+      const { fullName, email, address, city, postalCode, province } = req.body;
+      await db.collection("shippingForms").doc(email).set({
+        fullName,
+        email,
+        address,
+        city,
+        postalCode,
+        province,
+      });
+      res.status(200).send("Shipping form submitted successfully");
+    } catch (error) {
+      res.status(500).send("Error submitting form: " + error.message);
+    }
+  });
+});
