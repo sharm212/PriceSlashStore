@@ -442,14 +442,7 @@ function validateAndSubmit() {
           prefillFields(); // Prefill fields from URL
           document.querySelector(".button").addEventListener("click", async function (event) {
             event.preventDefault();  // Prevent default form submission
-        
-              // Reference to the form element
-              const form = document.getElementById("shippingForm");
-        
-            if (!form.checkValidity()) {
-                form.reportValidity(); // Show validation messages
-                return; // Stop execution if form is invalid
-            }
+
             // Gather form data
             const fullName = document.getElementById("fullName").value;
             const email = document.getElementById("emailAddress").value;
