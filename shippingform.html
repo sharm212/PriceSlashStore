@@ -73,16 +73,16 @@ window.onload = function() {
       });
 
       if (response.ok) {
-        alert("Form submitted successfully!");
+        // Show success alert if the data is stored
+        alert("Information submitted successfully!");
       } else {
-        alert("Failed to submit form");
+        alert("Failed to submit information.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while submitting the form.");
+      alert("An error occurred while submitting the information.");
     }
   });
-};
   </script>
     
     <style>
