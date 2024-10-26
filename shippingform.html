@@ -50,9 +50,7 @@ function prefillFields() {
 // Initialize on window load
 window.onload = function() {
   prefillFields(); // Prefill fields from URL
-};
-
-document.querySelector(".button").addEventListener("click", async function (event) {
+  document.querySelector(".button").addEventListener("click", async function (event) {
     event.preventDefault();  // Prevent default form submission
 
     // Gather form data
@@ -83,8 +81,7 @@ document.querySelector(".button").addEventListener("click", async function (even
       alert("An error occurred while submitting the form.");
     }
   });
-
-
+};
   </script>
     
     <style>
