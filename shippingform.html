@@ -414,6 +414,7 @@
         }
         // Validation function to check if all fields are filled
 function validateAndSubmit() {
+    event.preventDefault();  // Prevent default form submission
     // Get field values
     const fullName = document.getElementById("fullName").value;
     const email = document.getElementById("emailAddress").value;
