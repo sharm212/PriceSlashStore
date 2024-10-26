@@ -423,12 +423,12 @@ function validateAndSubmit() {
     const province = document.getElementById("province").value;
 
     // Check if all required fields are non-empty
-    if (fullName && email && address && city && postalCode && province) {
+    if (fullName == "" || email == "" || address == "" || city == "" || postalCode == "" || province == "") {
+       // If fields are missing, alert the user
+       alert("Please fill in all required fields before submitting.");
+    } else {
         // If all fields are filled, call the onSubmit function
         onSubmit();
-    } else {
-        // If fields are missing, alert the user
-        alert("Please fill in all required fields before submitting.");
     }
 }
         function onSubmit() {
