@@ -26,76 +26,8 @@
     <meta name="theme-color" content="#000000">
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"> 
-    <link rel="apple-touch-icon" href="favicon.png">
-   
-   <script>
-function onSubmit() {
-  // When reCAPTCHA is verified, submit form data
-  document.getElementById("shippingForm").submit();
-}
-
-// Function to prefill form fields from URL query parameters
-function prefillFields() {
-  const params = new URLSearchParams(window.location.search);
-  const fullName = params.get('fullName');
-  const email = params.get('email');
-
-  if (fullName) {
-    document.getElementById('fullName').value = fullName;
-  }
-  if (email) {
-    document.getElementById('emailAddress').value = email;
-  }
-}
-
-// Initialize on window load
-window.onload = function() {
-  prefillFields(); // Prefill fields from URL
-  document.querySelector(".button").addEventListener("click", async function (event) {
-    event.preventDefault();  // Prevent default form submission
-
-      // Reference to the form element
-      const form = document.getElementById("shippingForm");
-      
-    if (!form.checkValidity()) {
-        form.reportValidity(); // Show validation messages
-        return; // Stop execution if form is invalid
-    }
-    // Gather form data
-    const fullName = document.getElementById("fullName").value;
-    const email = document.getElementById("emailAddress").value;
-    const address = document.getElementById("address").value;
-    const city = document.getElementById("city").value;
-    const postalCode = document.getElementById("zipcode").value;
-    const province = document.getElementById("province").value;
-
-    // Send data to Firebase function
-    try {
-      const response = await fetch("https://us-central1-price-slash-3dad0.cloudfunctions.net/submitShippingForm", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ fullName, email, address, city, postalCode, province }),
-      });
-
-      if (response.ok) {
-        // Show success alert if the data is stored
-        alert("Information submitted successfully!");
-      } else {
-        alert("Failed to submit information.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred while submitting the information.");
-    }
-  });
-};
-  </script>
-    
+    <link rel="apple-touch-icon" href="favicon.png">    
     <style>
-
-
       html,body{
         background-color: black;
       }
@@ -465,7 +397,71 @@ window.onload = function() {
 
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
 
+        // Function to prefill form fields from URL query parameters
+        function prefillFields() {
+          const params = new URLSearchParams(window.location.search);
+          const fullName = params.get('fullName');
+          const email = params.get('email');
+        
+          if (fullName) {
+            document.getElementById('fullName').value = fullName;
+          }
+          if (email) {
+            document.getElementById('emailAddress').value = email;
+          }
+        }
+        function onSubmit() {
+          // When reCAPTCHA is verified, submit form data
+          document.getElementById("shippingForm").submit();
+        }
+        
+        
+        // Initialize on window load
+        window.onload = function() {
+          prefillFields(); // Prefill fields from URL
+          document.querySelector(".button").addEventListener("click", async function (event) {
+            event.preventDefault();  // Prevent default form submission
+        
+              // Reference to the form element
+              const form = document.getElementById("shippingForm");
+        
+            if (!form.checkValidity()) {
+                form.reportValidity(); // Show validation messages
+                return; // Stop execution if form is invalid
+            }
+            // Gather form data
+            const fullName = document.getElementById("fullName").value;
+            const email = document.getElementById("emailAddress").value;
+            const address = document.getElementById("address").value;
+            const city = document.getElementById("city").value;
+            const postalCode = document.getElementById("zipcode").value;
+            const province = document.getElementById("province").value;
+        
+            // Send data to Firebase function
+            try {
+              const response = await fetch("https://us-central1-price-slash-3dad0.cloudfunctions.net/submitShippingForm", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ fullName, email, address, city, postalCode, province }),
+              });
+        
+              if (response.ok) {
+                // Show success alert if the data is stored
+                alert("Information submitted successfully!");
+              } else {
+                alert("Failed to submit information.");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              alert("An error occurred while submitting the information.");
+            }
+          });
+        };
+          </script>
       
   </body>
 </html>
