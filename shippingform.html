@@ -316,7 +316,7 @@
           <input class="field__input" type="text" id="address" required />
         </label>
 
-        <div class="fields fields--3">
+        <div class="fields fields--2">
           <label class="field">
             <span class="field__label text-start" for="city">City</span>
             <input class="field__input" type="text" id="city" required />
@@ -325,6 +325,9 @@
             <span class="field__label text-start" for="zipcode">Postal Code</span>
             <input class="field__input" type="text" id="zipcode" required />
           </label>
+          
+        </div>
+       
           <label class="field">
             <span class="field__label text-start" for="province">Province</span>
             <select class="form-select field__input" id="province" required>
@@ -344,11 +347,12 @@
               <option value="YT">Yukon Territory</option>
             </select>
           </label>
-        </div>
-        <label class="field">
-          <span class="field__label text-start" for="phone">Phone Number</span>
-          <input class="field__input" type="text" id="phone" required/>
-      </label>
+          <label class="field">
+            <span class="field__label text-start" for="phone">Phone Number</span>
+            <input class="field__input" type="tel" id="phone" minlength="10" maxlength="10" required/>
+        </label>
+        
+
     </form>
       <hr>
       <button class="g-recaptcha button" 
