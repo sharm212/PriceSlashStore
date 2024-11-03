@@ -304,13 +304,13 @@
       <hr />
       <form id="shippingForm" class="form" onsubmit="submitForm(event)">
         <label class="field">
+          <span class="field__label text-start" for="emailAddress">Email</span>
+          <input class="field__input" type="email" id="emailAddress" required readonly/>
+        </label>
+        <label class="field">
             <span class="field__label text-start" for="fullName">Full Name</span>
             <input class="field__input" type="text" id="fullName" required readonly />
         </label>
-        <label class="field">
-            <span class="field__label text-start" for="emailAddress">Email</span>
-            <input class="field__input" type="email" id="emailAddress" required readonly/>
-          </label>
         <label class="field">
           <span class="field__label text-start" for="address">Address</span>
           <input class="field__input" type="text" id="address" required />
@@ -318,12 +318,12 @@
 
         <div class="fields fields--3">
           <label class="field">
-            <span class="field__label text-start" for="zipcode">Postal Code</span>
-            <input class="field__input" type="text" id="zipcode" required />
-          </label>
-          <label class="field">
             <span class="field__label text-start" for="city">City</span>
             <input class="field__input" type="text" id="city" required />
+          </label>
+          <label class="field">
+            <span class="field__label text-start" for="zipcode">Postal Code</span>
+            <input class="field__input" type="text" id="zipcode" required />
           </label>
           <label class="field">
             <span class="field__label text-start" for="province">Province</span>
@@ -345,6 +345,10 @@
             </select>
           </label>
         </div>
+        <label class="field">
+          <span class="field__label text-start" for="phone">Phone Number</span>
+          <input class="field__input" type="text" id="phone" required/>
+      </label>
     </form>
       <hr>
       <button class="g-recaptcha button" 
@@ -423,9 +427,10 @@ async function validateAndSubmit(event) {
     const city = document.getElementById("city").value;
     const postalCode = document.getElementById("zipcode").value;
     const province = document.getElementById("province").value;
+    const phone = document.getElementById("phone").value;
 
     // Check if all required fields are non-empty
-    if (fullName === "" || email === "" || address === "" || city === "" || postalCode === "" || province === "") {
+    if (fullName === "" || email === "" || address === "" || city === "" || postalCode === "" || province === "" || phone === "") {
         alert("Please fill in all required fields before submitting.");
         return; // Stop execution if validation fails
     }
@@ -437,7 +442,7 @@ async function validateAndSubmit(event) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ fullName, email, address, city, postalCode, province }),
+            body: JSON.stringify({ fullName, email, address, city, postalCode, province, phone}),
         });
 
         if (response.ok) {

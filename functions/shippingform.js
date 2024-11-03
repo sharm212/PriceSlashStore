@@ -7,10 +7,10 @@ const db = admin.firestore();
 
 exports.submitShippingForm = functions.https.onRequest(async (req, res) => {
   try {
-    const { fullName, email, address, city, postalCode, province } = req.body;
+    const { fullName, email, address, city, postalCode, province, phone} = req.body;
     
     // Log received data
-    console.log("Received data:", { fullName, email, address, city, postalCode, province });
+    console.log("Received data:", { fullName, email, address, city, postalCode, province, phone});
 
     // Attempt to write to Firestore
     await db.collection("shippingForms").doc(email).set({
@@ -20,6 +20,7 @@ exports.submitShippingForm = functions.https.onRequest(async (req, res) => {
       city,
       postalCode,
       province,
+      phone,
     });
 
     console.log("Data written successfully to Firestore for email:", email);

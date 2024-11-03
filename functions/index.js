@@ -21,6 +21,7 @@ exports.submitShippingForm = functions.https.onRequest((req, res) => {
         city,
         postalCode,
         province,
+        phone,
       });
       res.status(200).send("Shipping form submitted successfully");
     } catch (error) {
