@@ -450,7 +450,8 @@ async function validateAndSubmit(event) {
         });
 
         if (response.ok) {
-            alert("Information submitted successfully!");
+            alert("Shipping Information Submitted Successfully!");
+            window.location.href = "https://priceslashstore.com";
         } else {
             alert("Failed to submit information.");
         }
