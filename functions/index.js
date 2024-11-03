@@ -13,7 +13,7 @@ exports.submitShippingForm = functions.https.onRequest((req, res) => {
     }
 
     try {
-      const { fullName, email, address, city, postalCode, province } = req.body;
+      const { fullName, email, address, city, postalCode, province, phone} = req.body;
       await db.collection("shippingForms").doc(email).set({
         fullName,
         email,
