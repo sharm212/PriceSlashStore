@@ -139,7 +139,31 @@ body{
   transform: scaleX(1);
   transform-origin: bottom center;
 }
+.icons-text-section {
+    padding-bottom: 4vh;
+}
 
+    .blurred-image {
+        filter: blur(8px); /* Adjust blur level as needed */
+        width: 100%;
+        height: auto;
+    }
+
+    .centered-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1; /* Ensures text and button stay on top of images */
+        width: 100%;
+    }
+
+    .row {
+        position: relative;
+        overflow: hidden;
+        background-color: black; /* Optional for background contrast */
+    }
     </style>
 
     
@@ -243,7 +267,7 @@ body{
    </header>
 
    <div class="container-fluid full height">
-    <div class="container-fluid" style="">
+    <div class="container-fluid">
    <div class="row" style="margin:0; position: relative; overflow: hidden;">
     <!-- Blurred image on the left -->
     <div class="col-sm-6 nopadding">
@@ -288,36 +312,6 @@ body{
     <div class="col">Free & Fast<br>Shipping</div>
   </div></div>
 </div>
-<!-- CSS to apply blur effect and center the overlay -->
-<style>
-.icons-text-section {
-    padding-top: 1vh; /* Default padding for mobile devices */
-    padding-bottom: 4vh;
-}
-
-    .blurred-image {
-        filter: blur(8px); /* Adjust blur level as needed */
-        width: 100%;
-        height: auto;
-    }
-
-    .centered-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        z-index: 1; /* Ensures text and button stay on top of images */
-        width: 100%;
-    }
-
-    .row {
-        position: relative;
-        overflow: hidden;
-        background-color: black; /* Optional for background contrast */
-    }
-</style>
-
 
 <div style="background-color:white;">
 <h1 class="display-5 text-center" style="color: black; padding-bottom: 20px;padding-top: 20px;">Recently Added</h1>
