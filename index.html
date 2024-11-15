@@ -15,8 +15,6 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="theme-color" content="#000000">
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"> 
     <link rel="apple-touch-icon" href="favicon.png">
     <meta property="og:image" content="favicon.png"/>
     <meta property="og:title" content="Price Slash"/>
@@ -30,6 +28,11 @@
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
+
+    background-color: #000000; /* Ensures black background */
+    margin: 0;
+    padding: 0;
+    min-height: 100%; /* Fills entire viewport */
 }
 
 html{
@@ -333,7 +336,9 @@ main{
 
 </div>
   
-  <hr>
+<hr style="
+    color: black;margin: -1px 4%; 
+">
 <div class="row" style="background-color: white; margin:0; padding-bottom: 40px;">
   <h1 class="display-5 text-center" style="color: black; padding-top: 20px;padding-left: 0px;padding-right: 0px;">Why Choose Us?</h1>
   <div class="col-sm-4" style="padding-top: 20px;">
