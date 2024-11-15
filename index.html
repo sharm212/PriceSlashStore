@@ -142,6 +142,9 @@ body{
 .icons-text-section {
     padding-bottom: 4vh;
 }
+main{
+  height:100vh;
+}
 
     .blurred-image {
         filter: blur(8px); /* Adjust blur level as needed */
@@ -164,6 +167,49 @@ body{
         overflow: hidden;
         background-color: black; /* Optional for background contrast */
     }
+
+            /* Media Query for Tablets Ipads portrait mode */
+            @media (min-width: 768px) and (max-width: 1024px) {
+            .landingContainer {
+               height: 35vh;
+            }
+            .icons-text-section {
+               height: 10vh;
+            }
+        }
+                 /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+          .landingContainer {
+               height: 75vh;
+            }
+            .icons-text-section {
+               height: 15vh;
+            }
+            @media (max-width: 389px) {
+          .landingContainer {
+               height: 90vh;
+            }
+            .icons-text-section {
+               height: 20vh;
+            }
+        } 
+        @media (max-width: 345px) {
+          .landingContainer {
+               height: 75vh;
+            }
+            .icons-text-section {
+               height: 20vh;
+            }
+        } 
+                /* Media Query for Laptops and Desktops */
+                @media (min-width: 1025px) and (max-width: 1280px) {
+                  .landingContainer {
+               height: 70vh;
+            }
+            .icons-text-section {
+               height: 30vh;
+            }
+        }  
     </style>
 
     
@@ -267,7 +313,7 @@ body{
    </header>
 
    <div class="container-fluid full height">
-    <div class="container-fluid">
+    <div class="container-fluid landingContainer">
    <div class="row" style="margin:0; position: relative; overflow: hidden;">
     <!-- Blurred image on the left -->
     <div class="col-sm-6 nopadding">
@@ -330,9 +376,7 @@ body{
 
 </div>
   
-  <hr style="
-  color: black; margin: -1px 4%; 
-">
+  <hr>
 <div class="row" style="background-color: white; margin:0; padding-bottom: 40px;">
   <h1 class="display-5 text-center" style="color: black; padding-top: 20px;padding-left: 0px;padding-right: 0px;">Why Choose Us?</h1>
   <div class="col-sm-4" style="padding-top: 20px;">
