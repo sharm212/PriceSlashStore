@@ -13,6 +13,7 @@
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="theme-color" content="#000000">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -23,18 +24,21 @@
     <style>
       html,body
 {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
     width: 100%;
     height: 100%;
     margin: 0px;
-    padding: 0px;
     overflow-x: hidden; 
 
     background-color: #000000; /* Ensures black background */
     margin: 0;
-    padding: 0;
-    min-height: 100%; /* Fills entire viewport */
+    min-height: 100vh;
 }
-
+main {
+    min-height: calc(100vh - env(safe-area-inset-top, 0) - env(safe-area-inset-bottom, 0));
+    background-color: #000;
+}
 html{
   background-color: black;
 }
