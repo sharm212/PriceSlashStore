@@ -2,7 +2,7 @@
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://priceslashstore.com</loc>
-		<lastmod>2024-09-23</lastmod>
+		<lastmod>2024-11-14</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
@@ -2673,6 +2673,30 @@
 <url>
     <loc>https://priceslashstore.com/productDetails/436/Beats-Studio3-Wireless-Over-Ear-Headphones-Defiant-Black-Red</loc>
     <lastmod>2024-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://priceslashstore.com/productDetails/437/Fitbit-Versa-4-Smartwatch-Pink-Sand</loc>
+    <lastmod>2024-11-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://priceslashstore.com/productDetails/438/Fitbit-Versa-4-Smartwatch-Waterfall-Blue</loc>
+    <lastmod>2024-11-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://priceslashstore.com/productDetails/439/Dior-Sauvage-Parfum-200ml</loc>
+    <lastmod>2024-11-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://priceslashstore.com/productDetails/440/Chanel-Bleu-De-Chanel-150ml</loc>
+    <lastmod>2024-11-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
 </url>
