@@ -21,7 +21,8 @@ var queryString = location.search.substring(1);
 queryString = queryString.replace(/^\D+/g, '');
 
 $('#addToCart').on('click', function () {
-  const cartItemId = $("#SKU").text().split(":")[1].trim();
+  //const cartItemId = $("#SKU").text().split(":")[1].trim();
+  const cartItemId = queryString-1;
   console.log(cartItemId);
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
