@@ -20,6 +20,28 @@ var queryString = location.search.substring(1);
 //This removes any characters and extracts the number
 queryString = queryString.replace(/^\D+/g, '');
 
+$('#addToCart').on('click', function () {
+  const cartItemId = $("#SKU").text().split(":")[1].trim();
+  console.log(cartItemId);
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  if (!cart.includes(cartItemId)) {
+    cart.push(cartItemId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(`Item ${cartItemId} added to cart.`);
+  } else {
+    console.log(`Item ${cartItemId} already in cart.`);
+  }
+});
+const toastTrigger = document.getElementById('addToCart');
+const toastLiveExample = document.getElementById('liveToast');
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
+}
 
 const productsRef = ref(db, 'products/'+(parseInt(queryString)-1));
 onValue(productsRef, (snapshot)=>{
