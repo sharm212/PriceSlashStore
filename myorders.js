@@ -82,7 +82,7 @@ async function fetchOrders(email) {
         <span class="fw-bold">$${order.items.reduce((sum, item) => sum + (item.productPrice || 0), 0).toFixed(2)}</span>
       </div>
       <div class="d-flex justify-content-end">
-        <a href="orderdetails.html?orderId=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
+        <a href="orderDetails?orderId=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
       </div>
     </div>
   </div>
