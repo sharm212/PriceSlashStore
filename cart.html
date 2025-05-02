@@ -6,12 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="Price Slash">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Cart | Price Slash</title>
+    <title>Shopping Cart | Price Slash</title>
     <link rel="canonical" href="https://priceslashstore.com/cart">
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="favicon.png">
 <meta property="og:image" content="favicon.png" />
-<meta property="og:title" content="Cart | Price Slash" />
+<meta property="og:title" content="Shopping Cart | Price Slash" />
 <meta property=“og:type” content = “website” />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="module" src="cart.js"></script>
@@ -173,13 +173,15 @@ background-color: black;
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
           <ul class="navbar-nav text-center">
             <hr> 
-            <li><a href="about" class="nav-link text-white hover-underline-animation">About</a></li>
+            <li><a href="cart" class="nav-link text-white hover-underline-animation">Cart</a></li>
             <hr>  
-            <li><a href="cart" class="nav-link text-white text-white hover-underline-animation">Cart</a></li>
+            <li><a href="myorders" class="nav-link text-white text-white hover-underline-animation">My Account</a></li>
+            <hr> 
+            <li><a href="faqs" class="nav-link text-white text-white hover-underline-animation">FAQs</a></li>
             <hr> 
             <li><a href="contact" class="nav-link text-white text-white hover-underline-animation">Contact</a></li>
             <hr> 
-            <li><a href="faqs" class="nav-link text-white text-white hover-underline-animation">FAQs</a></li>
+            <li><a href="about" class="nav-link text-white text-white hover-underline-animation">About</a></li>
           </ul>
         </div>
         <div class="collapse navbar-collapse" id="searchMenu">
@@ -203,36 +205,12 @@ background-color: black;
   <!--<h1 class="display-3 text-center" style="padding-top: 20px;">About Us</h1> -->
   <figure class="text-center" style="padding-bottom: 20px; background-color: white; margin:0;">
     <blockquote class="blockquote" style="padding-bottom: 20px;">
-        <h1 class="display-3 text-center" style="padding-top: 20px;">Cart</h1>
+        <h1 class="display-3 text-center" style="padding-top: 20px;">Shopping Cart</h1>
     </blockquote>
     <div class="container my-4">
         <div id="emptyCart" class="text-muted text-center">Your cart is empty.</div>
         <div id="cartList" class="row gy-3"></div>
-        <a id="BuyNowButton" role="button" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-dark btn-lg" style="margin-top:20px; border-radius: 0 !important; width:100%;">Buy Now</a> <!--pointer-events: none; cursor: default;-->
         <a role="button" target=”_blank” href="shippingform" class="btn btn-dark btn-lg" style="margin-top:20px; border-radius: 0 !important; width:100%;">Checkout</a>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                  <h5 class="modal-title w-100" id="exampleModalLabel">CHECKOUT WITH E-TRANSFER</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>YOUR E-TRANSFER TOTAL IS:</p>
-                  <p id="productPriceModal"></p>
-                  <p><em>Price is inclusive of Shipping, Handling and Taxes.</em></p>
-                  <br>
-                  <p>To pay with e-transfer, send your payment to:</p>
-                  <p>info@priceslashstore.com</p>
-                  <br>
-                  <p><strong>Please include the following information when sending your payment as a message or comment, so our team can contact you for shipping details once your payment is confirmed:</strong></p>
-                  <p>Your Email</p>
-                  <p id="cartSKUS"></p>
-                </div>
-               
-              </div>
-            </div>
-          </div>
       </div>
   </figure>
    

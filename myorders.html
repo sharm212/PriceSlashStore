@@ -270,13 +270,15 @@
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
           <ul class="navbar-nav text-center">
             <hr> 
-            <li><a href="about" class="nav-link text-white hover-underline-animation">About</a></li>
+            <li><a href="cart" class="nav-link text-white hover-underline-animation">Cart</a></li>
             <hr>  
-            <li><a href="cart" class="nav-link text-white text-white hover-underline-animation">Cart</a></li>
+            <li><a href="myorders" class="nav-link text-white text-white hover-underline-animation">My Account</a></li>
+            <hr> 
+            <li><a href="faqs" class="nav-link text-white text-white hover-underline-animation">FAQs</a></li>
             <hr> 
             <li><a href="contact" class="nav-link text-white text-white hover-underline-animation">Contact</a></li>
             <hr> 
-            <li><a href="faqs" class="nav-link text-white text-white hover-underline-animation">FAQs</a></li>
+            <li><a href="about" class="nav-link text-white text-white hover-underline-animation">About</a></li>
           </ul>
         </div>
         <div class="collapse navbar-collapse" id="searchMenu">
@@ -298,6 +300,9 @@
    </header>
 
    <figure class="text-center p-4 py-5" style="background-color:white; margin:0;">    <hr style="margin:0;border:0; color:white;">
+    <blockquote class="blockquote" style="padding-bottom: 20px;">
+        <h1 class="display-3 text-center" style="padding-top: 20px;">My Orders</h1>
+    </blockquote>
     <div id="signInBox" class="form-container" style="padding-bottom:30px; padding-top:10px;">
       <h2 style="padding-top:10px;">Sign in with Google</h2>
       <hr>
@@ -307,8 +312,9 @@
     <br>
     <br>
     <hr style="margin:0;border:0; color:white;">
-    <div class="form-container" style="padding-bottom:30px; padding-top:10px;">
-     </div>
+    <div id="containerforAllOrders" class="container my-5">
+        <div id="ordersContainer" class="row gy-3"></div>
+    </div>
   </figure>
 
   <!-- Footer Section -->

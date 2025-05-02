@@ -48,8 +48,6 @@ onAuthStateChanged(auth, (user) => {
   
       if (signInBox) signInBox.remove(); fetchOrders(user.email);// Hide entire sign-in section
     } else {
-      submitBtn.disabled = true;
-  
       signInStatus.classList.remove("text-success");
       signInStatus.classList.add("text-danger");
       signInStatus.textContent = "❌ Please sign in to continue";
@@ -77,20 +75,23 @@ async function fetchOrders(email) {
       orderElement.className = "mb-4 text-start";
       const total = order.items.reduce((sum, item) => sum + (item.productPrice || 0), 0).toFixed(2);
       orderElement.innerHTML = `
-        <div class="card shadow-sm p-3">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span><strong>Order ID:</strong> ${order.orderId}</span>
-            <span><strong>Total:</strong> $${total}</span>
-          </div>
-          <div class="text-end">
-            <a href="/orderDetails.html?id=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
-          </div>
-        </div>
-      `;
-      document.querySelector(".form-container").appendChild(orderElement);
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0"><strong>Order ID:</strong> ${order.orderId}</h6>
+        <span class="fw-bold">$${order.items.reduce((sum, item) => sum + (item.productPrice || 0), 0).toFixed(2)}</span>
+      </div>
+      <div class="d-flex justify-content-end">
+        <a href="orderdetails.html?orderId=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
+      </div>
+    </div>
+  </div>
+`;
+
+      document.getElementById("ordersContainer").appendChild(orderElement);
     });
   } catch (error) {
     console.error("Error fetching orders:", error);
-    document.querySelector(".form-container").innerHTML += `<p class="text-danger">Failed to load orders.</p>`;
+    document.getElementById("ordersContainer").innerHTML += `<p class="text-danger">Failed to load orders.</p>`;
   }
 }
