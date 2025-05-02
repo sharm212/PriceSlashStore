@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Price Slash">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Shipping Form</title>
+    <title>My Orders</title>
     <meta property="og:title" content="Price Slash"/>
     <meta property="og:url" content=""/>
     <meta property="og:image" itemprop="image" content="">
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"> 
     <link rel="apple-touch-icon" href="favicon.png">    
-    <script type="module" src="shippingform.js"></script>
+    <script type="module" src="myorders.js"></script>
     <style>
       html,body{
         background-color: black;
@@ -206,7 +206,7 @@
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="bootstrap" viewBox="0 0 118 94">
-    <title>Shipping Form</title>
+    <title>My Orders</title>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
   </symbol>
   <symbol id="home" viewBox="0 0 16 16">
@@ -302,72 +302,13 @@
       <h2 style="padding-top:10px;">Sign in with Google</h2>
       <hr>
       <button id="googleSignIn" type="button" class="button">Sign in</button>
+      <p id="signInStatus" class="mt-3 text-danger">❌ Please sign in to view your orders</p>
     </div>
     <br>
     <br>
     <hr style="margin:0;border:0; color:white;">
     <div class="form-container" style="padding-bottom:30px; padding-top:10px;">
-      <h2 style="padding-top:10px;">Shipping</h2>
-      <p>Please enter your shipping details.</p>
-      <hr />
-      <form id="shippingForm" class="form" onsubmit="submitForm(event)">
-        <label class="field">
-          <span class="field__label text-start" for="emailAddress">Email</span>
-          <input class="field__input" type="email" id="emailAddress" required readonly/>
-        </label>
-        <label class="field">
-            <span class="field__label text-start" for="fullName">Full Name</span>
-            <input class="field__input" type="text" id="fullName" required />
-        </label>
-        <label class="field">
-          <span class="field__label text-start" for="address">Address</span>
-          <input class="field__input" type="text" id="address" required />
-        </label>
-
-        <div class="fields fields--2">
-          <label class="field">
-            <span class="field__label text-start" for="city">City</span>
-            <input class="field__input" type="text" id="city" required />
-          </label>
-          <label class="field">
-            <span class="field__label text-start" for="zipcode">Postal Code</span>
-            <input class="field__input" type="text" id="zipcode" required />
-          </label>
-          
-        </div>
-       
-          <label class="field">
-            <span class="field__label text-start" for="province">Province</span>
-            <select class="form-select field__input" id="province" required>
-              <option value="" disabled selected>Select a province</option>
-              <option value="AB">Alberta</option>
-              <option value="BC">British Columbia</option>
-              <option value="MB">Manitoba</option>
-              <option value="NB">New Brunswick</option>
-              <option value="NL">Newfoundland and Labrador</option>
-              <option value="NT">Northwest Territories</option>
-              <option value="NS">Nova Scotia</option>
-              <option value="NU">Nunavut</option>
-              <option value="ON">Ontario</option>
-              <option value="PE">Prince Edward Island</option>
-              <option value="QC">Quebec</option>
-              <option value="SK">Saskatchewan</option>
-              <option value="YT">Yukon Territory</option>
-            </select>
-          </label>
-          <label class="field">
-            <span class="field__label text-start" for="phone">Phone Number</span>
-            <input class="field__input" type="tel" id="phone" minlength="10" maxlength="10" required/>
-        </label>
-        
-
-    </form>
-      <hr>
-      <button id="submitFormBtn" type="submit" class="g-recaptcha button" 
-        data-sitekey="6Lc8W2wqAAAAABa8lAz_ZRny7n1-U9WYx1LznmRx" 
-        data-callback="validateAndSubmit" disabled>Submit</button>
-        <small id="signInStatus" class="text-danger d-block mt-2 text-center"></small>
-    </div>
+     </div>
   </figure>
 
   <!-- Footer Section -->
