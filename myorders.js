@@ -36,6 +36,8 @@ onAuthStateChanged(auth, (user) => {
     const signInBox = document.getElementById("signInBox");
   
     if (user) {
+      document.getElementById("userDisplayName").textContent = user.displayName || "User";
+      document.getElementById("userEmailDisplay").textContent = user.email;
       signInStatus.classList.remove("text-danger");
       signInStatus.classList.add("text-muted");
       signInStatus.innerHTML = `
@@ -46,7 +48,8 @@ onAuthStateChanged(auth, (user) => {
       <span class="text-muted">Signed in as ${user.email}</span>
     `;
   
-      if (signInBox) signInBox.remove(); fetchOrders(user.email);// Hide entire sign-in section
+      if (signInBox) signInBox.remove(); fetchOrders(user.email);
+      document.getElementById("userInfoCardWrapper").style.display = "block";// Hide entire sign-in section
     } else {
       signInStatus.classList.remove("text-success");
       signInStatus.classList.add("text-danger");
@@ -54,6 +57,10 @@ onAuthStateChanged(auth, (user) => {
     }
   });
 
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    auth.signOut().then(() => location.reload());
+  });
+  
   import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
 const firestore = getFirestore(app);
@@ -75,18 +82,18 @@ async function fetchOrders(email) {
       orderElement.className = "mb-4 text-start";
       const total = order.items.reduce((sum, item) => sum + (item.productPrice || 0), 0).toFixed(2);
       orderElement.innerHTML = `
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <h6 class="mb-0"><strong>Order ID:</strong> ${order.orderId}</h6>
-        <span class="fw-bold">$${order.items.reduce((sum, item) => sum + (item.productPrice || 0), 0).toFixed(2)}</span>
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6 class="mb-1"><strong>Order ID:</strong> ${order.orderId}</h6>
+          <p class="mb-2 text-muted"><small><strong>Date:</strong> ${order.placedAt?.toDate().toLocaleDateString()}</small></p>
+    
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="fw-bold">$${total}</span>
+            <a href="orderdetails.html?orderId=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
+          </div>
+        </div>
       </div>
-      <div class="d-flex justify-content-end">
-        <a href="orderDetails?orderId=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
-      </div>
-    </div>
-  </div>
-`;
+    `;
 
       document.getElementById("ordersContainer").appendChild(orderElement);
     });
