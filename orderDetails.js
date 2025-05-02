@@ -100,10 +100,12 @@ async function loadOrderDetails(email) {
       <img src="https://priceslashstore.com/productImages/IMG_${item.productID}_1.PNG" width="80" class="me-3 rounded" alt="${item.productName}">
       <div class="flex-grow-1">
         <p class="mb-1 fw-bold">${item.productName}</p>
-        <p class="mb-1 text-muted">SKU: ${item.sku}</p>
-        <p class="mb-1">Qty: 1</p>
+        <p class="mb-1">SKU: ${item.sku}</p>
+        <div class="d-flex justify-content-between">
+          <span>Qty: ${item.quantity || 1}</span>
+          <span><strong>$${item.productPrice.toFixed(2)}</strong></span>
+        </div>
       </div>
-      <p class="mb-0 fw-bold">$${item.productPrice.toFixed(2)}</p>
     </div>
   `).join("");
 
@@ -113,7 +115,7 @@ async function loadOrderDetails(email) {
         <h5 class="card-title">Ordered Items</h5>
         ${itemsHTML}
         <p class="text-end"><strong>Total: $${totalAmount.toFixed(2)}</strong></p>
-        <a id="BuyNowButton" role="button" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-dark btn-lg" style="margin-top:20px; border-radius: 0 !important; width:100%;">Make Payment</a> <!--pointer-events: none; cursor: default;-->
+        ${order.status === "Pending Payment" ? `<a id="BuyNowButton" role="button" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-dark btn-lg" style="margin-top:20px; margin-bottom:20px; border-radius: 0 !important; width:100%;">Make Payment</a> <!--pointer-events: none; cursor: default;-->` : ""}
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">

@@ -36,6 +36,13 @@ function loadCart(productDB) {
   const cartList = document.getElementById("cartList");
   const emptyCart = document.getElementById("emptyCart");
 
+  const checkoutBtn = document.getElementById("checkoutBtn");
+  if (cart.length > 0) {
+    checkoutBtn.style.display = "block";
+  } else {
+    checkoutBtn.style.display = "none";
+  }
+
   if (cart.length === 0) {
     emptyCart.style.display = "block";
     cartList.innerHTML = "";
