@@ -155,6 +155,7 @@ async function validateAndSubmit(event) {
         });
 
         if (response.ok) {
+            localStorage.removeItem("cart");
             alert("Order Placed Successfully!");
             window.location.href = "https://priceslashstore.com";
         } else {
