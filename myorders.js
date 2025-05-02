@@ -65,7 +65,7 @@ async function fetchOrders(email) {
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) {
-      document.querySelector(".form-container").innerHTML += `<p>No orders found.</p>`;
+      document.getElementById("ordersContainer").innerHTML += `<p>No orders found.</p>`;
       return;
     }
 
