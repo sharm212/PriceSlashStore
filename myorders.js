@@ -89,7 +89,7 @@ async function fetchOrders(email) {
     
           <div class="d-flex justify-content-between align-items-center">
             <span class="fw-bold">$${total}</span>
-            <a href="orderdetails?orderId=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
+            <a href="orderDetails?orderId=${order.orderId}" class="btn btn-sm btn-dark">View Order</a>
           </div>
         </div>
       </div>
