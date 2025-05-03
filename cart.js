@@ -56,6 +56,9 @@ function loadCart(productDB) {
     const item = productDB[sku];
     if (!item) return;
 totalCartValue += item.productPrice;
+
+const firstImage = item.productImages.split(",")[0].trim();
+
     cartList.innerHTML += `
     <div class="row justify-content-center mb-4" style="padding-left:0px;padding-right:0px;margin-left:0px;margin-right:0px;">
     <div class="col-12 col-md-10 col-lg-8">
@@ -63,7 +66,7 @@ totalCartValue += item.productPrice;
           <div class="row g-0 align-items-center">
             <div class="col-4">
             
-              <img src="/productImages/IMG_${item.productID}_1.PNG" class="img-fluid rounded-start" alt="${item.productName}">
+              <img src="/productImages/${firstImage}" class="img-fluid rounded-start" alt="${item.productName}">
             </div>
             <div class="col-8">
               <div class="card-body">
