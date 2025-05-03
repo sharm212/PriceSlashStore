@@ -132,6 +132,7 @@ if (!cfToken) {
                 productPrice: product.productPrice,
                 productDescription: product.productDescription || "",
                 productStatus: product.productStatus || "",
+                productImages: product.productImages || "",
               });
             }
           });

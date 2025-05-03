@@ -57,7 +57,10 @@ function loadCart(productDB) {
     if (!item) return;
 totalCartValue += item.productPrice;
 
-const firstImage = item.productImages.split(",")[0].trim();
+const imageString = item.productImages; // fallback to empty string if undefined
+const firstImage = imageString.includes(",")
+  ? imageString.split(",")[0].trim()
+  : imageString.trim();
 
     cartList.innerHTML += `
     <div class="row justify-content-center mb-4" style="padding-left:0px;padding-right:0px;margin-left:0px;margin-right:0px;">

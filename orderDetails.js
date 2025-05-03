@@ -95,9 +95,18 @@ async function loadOrderDetails(email) {
     const totalAmount = order.items.reduce((sum, item) => sum + item.productPrice, 0);
 
     // Ordered Items Card
-    const itemsHTML = order.items.map(item => `
+// Ordered Items Card
+const itemsHTML = order.items.map(item => {
+  const imageString = item.productImages; // fallback to empty string if undefined
+  console.log("Imagestring: "+imageString);
+  const firstImage = imageString.includes(",")
+    ? imageString.split(",")[0].trim()
+    : imageString.trim();
+    console.log("firstImage: "+firstImage);
+
+  return `
     <div class="d-flex justify-content-between align-items-center border rounded p-3 mb-3">
-      <img src="https://priceslashstore.com/productImages/IMG_${item.productID}_1.PNG" width="80" class="me-3 rounded" alt="${item.productName}">
+      <img src="https://priceslashstore.com/productImages/${firstImage}" width="80" class="me-3 rounded" alt="${item.productName}">
       <div class="flex-grow-1">
         <p class="mb-1 fw-bold">${item.productName}</p>
         <p class="mb-1">SKU: ${item.sku}</p>
@@ -107,7 +116,8 @@ async function loadOrderDetails(email) {
         </div>
       </div>
     </div>
-  `).join("");
+  `;
+}).join("");
 
     container.innerHTML += `
     <div class="card mb-4 shadow-sm">
