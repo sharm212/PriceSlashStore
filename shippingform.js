@@ -107,6 +107,12 @@ async function validateAndSubmit(event) {
       return;
     }
 
+    const cfToken = document.querySelector('input[name="cf-turnstile-response"]')?.value;
+if (!cfToken) {
+  alert("Please complete the bot verification.");
+  return;
+}
+
     // If validation passes, proceed with the submission
     try {
         const snapshot = await new Promise((resolve, reject) => {
@@ -143,7 +149,8 @@ async function validateAndSubmit(event) {
             postalCode,
             province,
             phone,
-            cartItems
+            cartItems,
+            cfToken
           };
 
         const response = await fetch("https://us-central1-price-slash-3dad0.cloudfunctions.net/submitShippingForm", {
@@ -170,31 +177,4 @@ async function validateAndSubmit(event) {
 // Initialize on window load
 window.onload = function() {
     prefillFields(); // Prefill fields from URL
-    document.getElementById("submitFormBtn").addEventListener("click", function (e) {
-      e.preventDefault();
-    
-      grecaptcha.enterprise.ready(async () => {
-        try {
-          const token = await grecaptcha.enterprise.execute('6LconSwrAAAAALCmI5mbLwDiSuOiX4A5t7Ur-dU9', {
-            action: 'submit'
-          });
-    
-          // Add token to hidden input for server-side validation (optional)
-          const form = document.getElementById('shippingForm');
-          let hiddenInput = document.querySelector('input[name="g-recaptcha-response"]');
-          if (!hiddenInput) {
-            hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'g-recaptcha-response';
-            form.appendChild(hiddenInput);
-          }
-          hiddenInput.value = token;
-    
-          // Now call your form validation and submission
-          validateAndSubmit(e);
-        } catch (err) {
-          console.error('reCAPTCHA failed:', err);
-          alert("reCAPTCHA verification failed. Please try again.");
-        }
-      });
-    });  };
+    document.getElementById("submitFormBtn").addEventListener("click", validateAndSubmit)};

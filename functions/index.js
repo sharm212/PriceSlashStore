@@ -5,6 +5,27 @@ const cors = require("cors")({ origin: true });
 admin.initializeApp();
 const db = admin.firestore();
 
+const axios = require("axios");
+
+async function verifyTurnstile(token) {
+  const secret = "0x4AAAAAABZinwvM6gwc0__8WmophNLCXWs";
+  const response = await axios.post(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    new URLSearchParams({
+      secret,
+      response: token
+    })
+  );
+  return response.data.success;
+}
+
+const cfToken = req.body.cfToken;
+const verified = await verifyTurnstile(cfToken);
+
+if (!verified) {
+  return res.status(403).json({ message: "Bot verification failed" });
+}
+
 exports.submitShippingForm = functions.https.onRequest((req, res) => {
   cors(req, res, async () => {
     if (req.method !== "POST") {
