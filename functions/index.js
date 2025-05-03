@@ -1,11 +1,10 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const cors = require("cors")({ origin: true });
+const axios = require("axios");
 
 admin.initializeApp();
 const db = admin.firestore();
-
-const axios = require("axios");
 
 async function verifyTurnstile(token) {
   const secret = "0x4AAAAAABZinwvM6gwc0__8WmophNLCXWs";
@@ -19,18 +18,18 @@ async function verifyTurnstile(token) {
   return response.data.success;
 }
 
-const cfToken = req.body.cfToken;
-const verified = await verifyTurnstile(cfToken);
-
-if (!verified) {
-  return res.status(403).json({ message: "Bot verification failed" });
-}
-
 exports.submitShippingForm = functions.https.onRequest((req, res) => {
   cors(req, res, async () => {
     if (req.method !== "POST") {
       return res.status(405).send("Method Not Allowed");
     }
+
+    const cfToken = req.body.cfToken;
+const verified = await verifyTurnstile(cfToken);
+
+if (!verified) {
+  return res.status(403).json({ message: "Bot verification failed" });
+}
 
     try {
       const { fullName, email, address, city, postalCode, province, phone, cartItems } = req.body;
