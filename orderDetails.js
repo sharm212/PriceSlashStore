@@ -72,7 +72,7 @@ async function loadOrderDetails(email) {
     container.innerHTML += `
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">Order Information</h5>
+          <h4 style="padding-bottom:15px;" class="card-title">Order Information</h4>
           <p><strong>Order ID:</strong> ${order.orderId}</p>
           <p><strong>Status:</strong> ${order.status}</p>
           <p><strong>Date Placed:</strong> ${orderDate}</p>
@@ -84,7 +84,7 @@ async function loadOrderDetails(email) {
     container.innerHTML += `
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">Shipping Details</h5>
+          <h4 style="padding-bottom:15px;" class="card-title">Shipping Details</h4>
           <p><strong>Name:</strong> ${order.fullName}</p>
           <p><strong>Address:</strong> ${order.address}, ${order.city}, ${order.province} - ${order.postalCode}</p>
           <p><strong>Phone:</strong> ${order.phone}</p>
@@ -122,7 +122,7 @@ const itemsHTML = order.items.map(item => {
     container.innerHTML += `
     <div class="card mb-4 shadow-sm">
       <div class="card-body">
-        <h5 class="card-title">Ordered Items</h5>
+        <h4 style="padding-bottom:15px;" class="card-title">Ordered Items</h4>
         ${itemsHTML}
         <p class="text-end"><strong>Total: $${totalAmount.toFixed(2)}</strong></p>
         ${order.status === "Pending Payment" ? `<a id="BuyNowButton" role="button" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-dark btn-lg" style="margin-top:20px; margin-bottom:20px; border-radius: 0 !important; width:100%;">Make Payment</a> <!--pointer-events: none; cursor: default;-->` : ""}
