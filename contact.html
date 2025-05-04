@@ -103,6 +103,66 @@
   transform-origin: bottom center;
 }
 
+.form-container {
+  max-width: 40rem;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.button {
+        background-color: #000;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: block;
+        color: #fff;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        border: 0;
+        cursor: pointer;
+        outline: 0;
+      }
+
+      .form {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3e5ed;
+  padding: .5rem;
+  border-radius: .25rem;
+}
+
+.field__label {
+  color: #737888;
+  font-size: 0.6rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.field__input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  background-color: transparent;
+}
+
+.field:focus-within {
+  border-color: #000;
+}
+
     </style>
 
     
@@ -204,33 +264,36 @@
   </div>
  </div>
    </header>
-  <figure class="text-center" style="padding-bottom: 50px; background-color: white; margin:0;">
-    <blockquote class="blockquote">
-        <h1 class="display-3 text-center" style="padding-top: 20px;">Contact Us</h1>
-    </blockquote>
-
+  <figure class="text-center" style="padding-top:3rem!important;padding-bottom: 50px; background-color: white; margin:0;">
     <div class="container">
-      <div class="form text-center">
-        <form onsubmit="sendEmail(); reset(); return false;">
-      <!-- Name input -->
-      <div class="form-outline mb-4">
-        <input type="text" id="name" class="form-control" placeholder="Full Name" required/>
-      </div>
-    
-      <!-- Email input -->
-      <div class="form-outline mb-4">
-        <input type="email" id="email" class="form-control" placeholder="Email Address" required/>
-      </div>
-    
-      <!-- Message input -->
-      <div class="form-outline mb-4">
-        <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
-      </div>
+      <div class="form-container" style="padding: 30px 20px; margin-bottom: 100px;">
+        <h2 style="padding-top:10px;">Contact Us</h2>
+        <hr />
+        <form onsubmit="sendEmail(); reset(); return false;" class="form">
+      
+        <!-- Name input -->
+        <label class="field">
+            <span class="field__label text-start" for="name">Full Name</span>
+            <input class="field__input" type="text" id="name" required />
+        </label>
+
+            <!-- Email input -->
+                <label class="field">
+                  <span class="field__label text-start" for="email">Email Address</span>
+                  <input class="field__input" type="email" id="email" required />
+              </label>
+ 
+                          <!-- Message input -->
+                          <label class="field">
+                            <span class="field__label text-start" for="message">Your Message</span>
+                            <textarea class="field__input" rows="4" id="message" required ></textarea>
+                        </label>
     
       
       <!-- Submit button -->
-      <button type="submit" class="btn btn-dark btn-lg" style="border-radius: 0 !important; margin-bottom: 150px;">Send</button>
-        </form>
+      <button type="submit" class="button">Send</button>
+       
+    </form>
       </div>
     </div>
   </figure>
