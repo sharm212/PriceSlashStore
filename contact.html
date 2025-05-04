@@ -169,6 +169,13 @@
     <!-- Custom styles for this template -->
     <link href="headers.css" rel="stylesheet">
   </head>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("CW9Fs8BcXFhliwI3b"); // Replace with your public key from EmailJS → Account → API keys
+  })();
+</script>
+  
   <body>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -344,18 +351,15 @@
 
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
       function sendEmail(){
-    Email.send({
-    SecureToken : "5590a469-7fbf-4d5a-816b-533d022d5c70",
-    To : 'info@priceslashstore.com',
-    From : "priceslashsales@gmail.com",
-    Subject : "New Contact Form Enquiry",
-    Body : "From: "+document.getElementById("email").value+" "+document.getElementById("message").value
-}).then(
-  message => alert("Your message has been sent.")
-);
+        emailjs.sendForm('service_200r51f', 'template_wqn1g6o', document.querySelector("form"))
+    .then(function() {
+      alert("Your message has been sent successfully!");
+    }, function(error) {
+      console.error("FAILED...", error);
+      alert("There was an error sending your message. Please try again later.");
+    });
       }
     </script>  
   </body>
