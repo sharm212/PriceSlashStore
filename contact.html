@@ -276,7 +276,7 @@
       <div class="form-container" style="padding: 30px 20px; margin-bottom: 100px;">
         <h2 style="padding-top:10px;">Contact Us</h2>
         <hr />
-        <form onsubmit="sendEmail(); reset(); return false;" class="form">
+        <form name="contact-form" onsubmit="sendEmail(); reset(); return false;" class="form">
       
         <!-- Name input -->
         <label class="field">
@@ -352,15 +352,15 @@
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      function sendEmail(){
-        emailjs.sendForm('service_200r51f', 'template_wqn1g6o', document.querySelector("form"))
+function sendEmail() {
+  emailjs.sendForm('service_200r51f', 'template_wqn1g6o', document.forms['contact-form'])
     .then(function() {
       alert("Your message has been sent successfully!");
     }, function(error) {
       console.error("FAILED...", error);
       alert("There was an error sending your message. Please try again later.");
     });
-      }
+}
     </script>  
   </body>
 </html>
