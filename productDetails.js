@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 window.prerenderReady = false;
+const DELAY_TIME = 30000;
 console.log('Prerender Ready flag set to false');
 const firebaseConfig = {
   apiKey: "AIzaSyDHLtzB6wRgh1iBH44Iwn-uEehRruAdZ8A",
@@ -174,8 +175,11 @@ $("#productShareLink").attr("href","https://priceslashstore.com/productDetails/"
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 
-window.prerenderReady = true;  // Signal to Prerender.io that the page is ready
-
+            // Add a delay before setting prerenderReady to true
+            setTimeout(() => {
+              console.log('Prerender Ready flag set to true');
+              window.prerenderReady = true;  // Signal to Prerender.io that the page is ready
+          }, DELAY_TIME);  // Delay before signaling that the page is ready
     console.log('Prerender Ready flag set to true');
 
 //New Feature
@@ -191,11 +195,4 @@ $("#BuyNowButton").off('click');
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
 }
-
 });
-setTimeout(() => {
-  if (window.prerenderReady !== true) {
-    console.log('⏱️ Fallback: Forcing prerenderReady after timeout');
-    window.prerenderReady = true;
-  }
-}, 5000); // fallback after 5 seconds max
