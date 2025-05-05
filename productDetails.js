@@ -191,4 +191,11 @@ $("#BuyNowButton").off('click');
 if(data==null){
     $("#errorPage").text("Error: Page Does Not Exist");
 }
+
 });
+setTimeout(() => {
+  if (window.prerenderReady !== true) {
+    console.log('⏱️ Fallback: Forcing prerenderReady after timeout');
+    window.prerenderReady = true;
+  }
+}, 5000); // fallback after 5 seconds max
