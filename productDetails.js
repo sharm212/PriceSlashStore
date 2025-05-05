@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 window.prerenderReady = false;
-const DELAY_TIME = 30000;
 console.log('Prerender Ready flag set to false');
 const firebaseConfig = {
   apiKey: "AIzaSyDHLtzB6wRgh1iBH44Iwn-uEehRruAdZ8A",
@@ -175,11 +174,8 @@ $("#productShareLink").attr("href","https://priceslashstore.com/productDetails/"
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 
-            // Add a delay before setting prerenderReady to true
-            setTimeout(() => {
-              console.log('Prerender Ready flag set to true');
-              window.prerenderReady = true;  // Signal to Prerender.io that the page is ready
-          }, DELAY_TIME);  // Delay before signaling that the page is ready
+window.prerenderReady = true;  // Signal to Prerender.io that the page is ready
+
     console.log('Prerender Ready flag set to true');
 
 //New Feature
