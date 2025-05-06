@@ -184,12 +184,12 @@ $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDes
 
 //New Feature
 if(data.productStatus == "OutOfStock"){
-$("#BuyNowButton").text("Out of Stock");
-$("#BuyNowButton").removeAttr('href')
-$("#BuyNowButton").attr("disabled","true");
-$("#BuyNowButton").attr("data-bs-toggle","");
-$("#BuyNowButton").attr("data-bs-target","");
-$("#BuyNowButton").off('click');
+$("#addToCart").text("Out of Stock");
+$("#addToCart").removeAttr('href')
+$("#addToCart").attr("disabled","true");
+$("#addToCart").attr("data-bs-toggle","");
+$("#addToCart").attr("data-bs-target","");
+$("#addToCart").off('click');
 }
 
 if(data==null){
