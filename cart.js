@@ -24,11 +24,23 @@ $("#cartSKUS").text("SKU: "+JSON.parse(localStorage.getItem("cart")) || []);
 onValue(productsRef, (snapshot) => {
   const productDB = snapshot.val();
   if (productDB) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Filter out-of-stock items
+    const filteredCart = cart.filter(sku => {
+      const item = productDB[sku];
+      return item && item.productStatus === "InStock";
+    });
+
+    // Update localStorage if any items were removed
+    if (filteredCart.length !== cart.length) {
+      localStorage.setItem("cart", JSON.stringify(filteredCart));
+    }
+
+    // Proceed to load the cart with updated data
     loadCart(productDB);
   }
-}, {
-  onlyOnce: true
-});
+}, { onlyOnce: true });
 
 // Step 2: Use productDB when loading cart
 function loadCart(productDB) {
