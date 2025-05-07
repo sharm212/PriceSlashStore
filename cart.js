@@ -24,27 +24,26 @@ $("#cartSKUS").text("SKU: "+JSON.parse(localStorage.getItem("cart")) || []);
 onValue(productsRef, (snapshot) => {
   const productDB = snapshot.val();
   if (productDB) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const rawCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Filter out-of-stock items
-    const filteredCart = cart.filter(sku => {
+    // Keep only SKUs that exist AND are in stock
+    const filteredCart = rawCart.filter(sku => {
       const item = productDB[sku];
       return item && item.productStatus === "InStock";
     });
 
-    // Update localStorage if any items were removed
-    if (filteredCart.length !== cart.length) {
+    // Update localStorage only if changes occurred
+    if (filteredCart.length !== rawCart.length) {
       localStorage.setItem("cart", JSON.stringify(filteredCart));
     }
 
-    // Proceed to load the cart with updated data
-    loadCart(productDB);
+    // Load the cart using the filtered cart
+    loadCart(productDB, filteredCart);
   }
 }, { onlyOnce: true });
 
 // Step 2: Use productDB when loading cart
-function loadCart(productDB) {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+function loadCart(productDB, cart) {
   const cartList = document.getElementById("cartList");
   const emptyCart = document.getElementById("emptyCart");
 
