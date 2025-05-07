@@ -74,7 +74,11 @@ async function loadOrderDetails(email) {
         <div class="card-body">
           <h4 style="padding-bottom:15px;" class="card-title">Order Information</h4>
           <p><strong>Order ID:</strong> ${order.orderId}</p>
-          <p><strong>Status:</strong> ${order.status}</p>
+          <p><strong>Status:</strong> ${order.status}
+          ${order.status === "Shipped" && order.trackingLink ? `
+            <a href="${order.trackingLink}" target="_blank" class="btn btn-sm btn-dark ms-3">Track</a>
+          ` : ""}
+          </p>
           <p><strong>Date Placed:</strong> ${orderDate}</p>
         </div>
       </div>
