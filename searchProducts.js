@@ -25,7 +25,7 @@ var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,k
 var search = vars.search.replace(/\+/g," ");
 //search = search.toLowerCase();
 //const searchedTitle = search.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
-$("#searchTitle").text("Product Results For: "+search);
+$("#searchTitle").text("Product Results for: "+search);
 $("#productSearchLink").attr("href","https://priceslashstore.com/searchProducts.html?search="+vars.search);
 
 let start=0;
@@ -65,7 +65,7 @@ data.forEach(function(item, index, object){
 }}
     //If Statement to check if no results are found
      if(data.length==0){
-         $("#searchTitle").text("No Results Found For: "+search);
+         $("#searchTitle").text("No Results Found for: "+search);
      }
 
     for (let i =starts; i < ends; i++) {
