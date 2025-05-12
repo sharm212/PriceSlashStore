@@ -684,14 +684,20 @@ main{
 
   /* Smaller phones */
   @media (max-width: 576px) {
-    #categoryCarousel .carousel-control-prev {
-      left: -1rem;
-    }
-
-    #categoryCarousel .carousel-control-next {
-      right: -1rem;
-    }
+  #categoryCarousel .carousel-control-prev-icon,
+  #categoryCarousel .carousel-control-next-icon {
+    width: 0.9rem;
+    height: 0.9rem;
   }
+
+  #categoryCarousel .carousel-control-prev {
+    left: -0.8rem;
+  }
+
+  #categoryCarousel .carousel-control-next {
+    right: -0.8rem;
+  }
+}
 </style>
 
 
@@ -823,7 +829,21 @@ main{
 
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var carousel = document.querySelector('#categoryCarousel');
+        if (carousel) {
+          var carouselInstance = new bootstrap.Carousel(carousel, {
+            touch: true,
+            interval: false,
+            ride: false,
+            wrap: true
+          });
+          // Manually trigger a dummy slide to activate swipe (but return to first item)
+          carouselInstance.to(0);
+        }
+      });
+    </script>
       
   </body>
 </html>
