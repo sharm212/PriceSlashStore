@@ -163,6 +163,18 @@ main{
         overflow: hidden;
         background-color: black; /* Optional for background contrast */
     } 
+    .brand-card {
+  background-color: #f8f9fa !important;
+}
+.brand-card {
+  background-color: #f8f9fa !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.brand-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
     </style>
 
     
@@ -314,51 +326,375 @@ main{
   </div></div>
 </div>
 
-<div class="w-100 py-5" style="background-color: #f8f9fa; margin: 0;">
+<div class="w-100" style="background-color: white; margin: 0; padding-top:20px;padding-bottom: 20px;">
   <div class="container">
     <h1 class="display-6 text-center mb-4">Shop by Brand</h1>
-    <div class="d-flex overflow-auto pb-2 justify-content-start" style="gap: 1rem; padding-left: 1rem; padding-right: 1rem;">
+    <div class="d-flex overflow-auto pb-2 justify-content-start" style="gap: 1rem; padding-left: 1rem; padding-right: 1rem; padding-top:5px;">
       
       <a href="/brand.html?name=apple" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Apple</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Apple</div>
       </a>
       <a href="/brand.html?name=samsung" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Samsung</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Samsung</div>
       </a>
       <a href="/brand.html?name=playstation" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">PlayStation</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">PlayStation</div>
       </a>
       <a href="/brand.html?name=nintendo" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Nintendo</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Nintendo</div>
       </a>
       <a href="/brand.html?name=xbox" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Xbox</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Xbox</div>
       </a>
       <a href="/brand.html?name=beats" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Beats</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Beats</div>
       </a>
       <a href="/brand.html?name=sony" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Sony</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Sony</div>
       </a>
       <a href="/brand.html?name=acer" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Acer</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Acer</div>
       </a>
       <a href="/brand.html?name=razer" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Razer</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Razer</div>
       </a>
       <a href="/brand.html?name=gopro" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">GoPro</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">GoPro</div>
       </a>
       <a href="/brand.html?name=pokemon" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Pokemon</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Pokemon</div>
       </a>
       <a href="/brand.html?name=michael%20kors" class="text-decoration-none flex-shrink-0">
-        <div class="border text-center px-4 py-3 bg-white text-dark rounded" style="min-width: 140px;">Michael Kors</div>
+        <div class="border text-center px-4 py-3 brand-card text-dark rounded" style="min-width: 140px;">Michael Kors</div>
       </a>
 
     </div>
   </div>
 </div>
+
+
+<!-- BEGIN Shop by Category Section -->
+<section id="shopByCategory" class="bg-white" style="background-color:#f8f9fa !important; padding-bottom: 20px; padding-top: 20px;">
+  <div class="container">
+    <h1 class="display-6 text-center mb-4">Shop by Category</h1>
+    <div id="categoryCarousel" class="carousel slide carousel-fade" data-bs-touch="true" data-bs-interval="false">
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row text-center" style="background-color: #f8f9fa;">
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Smartphones" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-phone" style="font-size: 2rem;"></i><div>Smartphones</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Laptops" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-laptop" style="font-size: 2rem;"></i><div>Laptops</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Smartwatches" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-watch" style="font-size: 2rem;"></i><div>Smartwatches</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Tablets%20%26%20iPads" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-tablet" style="font-size: 2rem;"></i><div>Tablets & iPads</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row text-center" style="background-color: #f8f9fa;">
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Headphones%20%26%20Earbuds" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-headphones" style="font-size: 2rem;"></i><div>Headphones & Earbuds</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Phone%20Accessories" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-lightning-charge" style="font-size: 2rem;"></i><div>Phone Accessories</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Gaming%20Accessories" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-joystick" style="font-size: 2rem;"></i><div>Gaming Accessories</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Gaming%20Consoles" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-controller" style="font-size: 2rem;"></i><div>Gaming Consoles</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="row text-center" style="background-color: #f8f9fa;">
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Speakers" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-speaker" style="font-size: 2rem;"></i><div>Speakers</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Monitors" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-display" style="font-size: 2rem;"></i><div>Monitors</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Cameras%20%26%20Accessories" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-camera" style="font-size: 2rem;"></i><div>Cameras & Accessories</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Computer%20Accessories" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-keyboard" style="font-size: 2rem;"></i><div>Computer Accessories</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item">
+          <div class="row text-center" style="background-color: #f8f9fa;">
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Tablet%20Accessories" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-usb" style="font-size: 2rem;"></i><div>Tablet Accessories</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Video%20Games" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-disc" style="font-size: 2rem;"></i><div>Video Games</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=VR%20Headsets" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-display" style="font-size: 2rem;"></i><div>VR Headsets</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Toys%20%26%20Collectibles" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-puzzle" style="font-size: 2rem;"></i><div>Toys & Collectibles</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-item">
+          <div class="row text-center" style="background-color: #f8f9fa;">
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Watches" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-clock" style="font-size: 2rem;"></i><div>Watches</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Sunglasses" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-eyeglasses" style="font-size: 2rem;"></i><div>Sunglasses</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Perfumes" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-droplet" style="font-size: 2rem;"></i><div>Perfumes</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Projectors" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-display-fill" style="font-size: 2rem;"></i><div>Projectors</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="carousel-item">
+          <div class="row text-center" style="background-color: #f8f9fa;">
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Womens%20Bags" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-bag" style="font-size: 2rem;"></i><div>Women's Bags</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Footwear" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-bootstrap-reboot" style="font-size: 2rem;"></i><div>Footwear</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Streaming%20Devices" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-broadcast-pin" style="font-size: 2rem;"></i><div>Streaming Devices</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3 p-3">
+              <a href="category.html?category=Others" class="text-decoration-none text-dark">
+                <div class="category-card border rounded p-4 bg-white">
+                  <i class="bi bi-box" style="font-size: 2rem;"></i><div>Others</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Arrows -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+      <!-- Dots -->
+      <div class="d-flex justify-content-center mt-3">
+        <div class="carousel-indicators position-static">
+          <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="4"></button>
+          <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="5"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END Shop by Category Section -->
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+  /* Base styles for arrows */
+  #categoryCarousel .carousel-control-prev,
+  #categoryCarousel .carousel-control-next {
+    width: auto;
+    top: 42%;
+    transform: translateY(-50%);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  #categoryCarousel .carousel-control-prev-icon,
+  #categoryCarousel .carousel-control-next-icon {
+    width: 2rem;
+    height: 2rem;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: #000;
+    background-color: transparent !important;
+    filter: invert(100%);
+  }
+
+  #categoryCarousel .carousel-control-prev-icon {
+    mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 16 16'%3e%3cpath d='M11 1 3 8l8 7V1z'/%3e%3c/svg%3e");
+  }
+
+  #categoryCarousel .carousel-control-next-icon {
+    mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 16 16'%3e%3cpath d='M5 1l8 7-8 7V1z'/%3e%3c/svg%3e");
+  }
+
+  /* Desktop position */
+  #categoryCarousel .carousel-control-prev {
+    left: -2.5rem;
+  }
+
+  #categoryCarousel .carousel-control-next {
+    right: -2.5rem;
+  }
+
+  /* Hover effect for cards */
+  .category-card {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .category-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Tablet & Mobile adjustments */
+  @media (max-width: 768px) {
+    #categoryCarousel .carousel-control-prev-icon,
+    #categoryCarousel .carousel-control-next-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    #categoryCarousel .carousel-control-prev {
+      left: -1.2rem;
+    }
+
+    #categoryCarousel .carousel-control-next {
+      right: -1.2rem;
+    }
+  }
+
+  /* Smaller phones */
+  @media (max-width: 576px) {
+    #categoryCarousel .carousel-control-prev {
+      left: -1rem;
+    }
+
+    #categoryCarousel .carousel-control-next {
+      right: -1rem;
+    }
+  }
+</style>
+
+
 
 
 <div style="background-color:white;">
