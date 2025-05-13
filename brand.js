@@ -20,6 +20,17 @@ const brandParam = (urlParams.get("brand") || urlParams.get("name") || "").toLow
 
 if (!brandParam) {
   document.getElementById("listOfProducts").innerHTML = "<p class='text-center'>No brand selected.</p>";
+
+  const canonicalLink = document.querySelector("link[rel='canonical']");
+  if (canonicalLink) {
+    canonicalLink.setAttribute("href", `https://priceslashstore.com/brand?name=${encodeURIComponent(brandParam)}`);
+  } else {
+    const newCanonical = document.createElement("link");
+    newCanonical.setAttribute("rel", "canonical");
+    newCanonical.setAttribute("href", `https://priceslashstore.com/brand?name=${encodeURIComponent(brandParam)}`);
+    document.head.appendChild(newCanonical);
+  }
+
 } else {
   document.title = `${brandParam.charAt(0).toUpperCase() + brandParam.slice(1)} | Price Slash`;
   loadProducts(0, 8);

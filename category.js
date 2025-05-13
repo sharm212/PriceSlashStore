@@ -22,6 +22,20 @@ document.getElementById("categoryTitle").textContent =
 
 if (!categoryParam) {
   document.getElementById("listOfProducts").innerHTML = "<p class='text-center'>No category selected.</p>";
+
+  const canonicalLink = document.querySelector("link[rel='canonical']");
+  const canonicalURL = `https://priceslashstore.com/category?category=${encodeURIComponent(categoryParam)}`;
+  
+  if (canonicalLink) {
+    canonicalLink.setAttribute("href", canonicalURL);
+  } else {
+    const newCanonical = document.createElement("link");
+    newCanonical.setAttribute("rel", "canonical");
+    newCanonical.setAttribute("href", canonicalURL);
+    document.head.appendChild(newCanonical);
+  }
+
+
 } else {
   document.title = `${categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1)} | Price Slash`;
   loadProducts(0, 8);
