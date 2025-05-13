@@ -71,6 +71,8 @@ const productData = {
   sku: data.productID,
   price: data.productPrice,
   currency: "CAD",
+  brand: data.brand,
+  category: data.category,
   availability: data.productStatus,
   url: "https://priceslashstore.com/productDetails/"+data.productID+'/'+data.productName.replace(/\s*-\s*/g, '-').replace(/\s+/g, '-'),
   condition: "NewCondition"
@@ -78,6 +80,7 @@ const productData = {
 
 // Function to inject the JSON-LD structured data into the page
 function injectStructuredData(product) {
+ 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
