@@ -84,6 +84,17 @@ function injectStructuredData(product) {
     "name": product.name,
     "image": product.image,
     "description": product.description,
+    "brand": {
+      "@type": "Brand",
+      "name": product.brand
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Category",
+        "value": product.category
+      }
+    ],
     "sku": product.sku,
     "offers": {
       "@type": "Offer",
