@@ -163,6 +163,35 @@ if (!cfToken) {
         });
 
         if (response.ok) {
+              // Prepare EmailJS template params
+    const orderId = "PS" + Date.now(); // Simple order ID example
+    const orderDate = new Date().toLocaleDateString();
+
+    const productListHTML = cartItems.map(item => 
+        `<li style="margin-bottom: 10px;">
+            1 × ${item.productName} — $${item.productPrice}
+        </li>`
+    ).join("");
+
+    const emailTemplateParams = {
+        to_name: fullName,
+        order_id: orderId,
+        order_date: orderDate,
+        order_url: `https://priceslashstore.com/orderdetails.html?orderId=${orderId}`,
+        product_list: productListHTML,
+        total: cartItems.reduce((sum, item) => sum + parseFloat(item.productPrice), 0).toFixed(2)
+    };
+
+    // Send email using EmailJS
+    await emailjs.send('service_200r51f', 'template_agcvuxz', emailTemplateParams)
+        .then((emailResponse) => {
+            console.log('Email sent!', emailResponse.status, emailResponse.text);
+        }, (emailError) => {
+            console.error('Failed to send email:', emailError);
+            // You can decide whether to proceed or alert the user here
+        });
+
+    // Now clear cart and redirect
             localStorage.removeItem("cart");
             alert("Order Placed Successfully!");
             window.location.href = "https://priceslashstore.com/myorders";
