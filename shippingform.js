@@ -179,7 +179,7 @@ if (!cfToken) {
         to_email: email,
         order_id: orderId,
         order_date: orderDate,
-        order_url: `https://priceslashstore.com/orderdetails.html?orderId=${orderId}`,
+        order_url: `https://priceslashstore.com/orderDetails?orderId=${orderId}`,
         product_list: productListHTML,
         total: cartItems.reduce((sum, item) => sum + parseFloat(item.productPrice), 0).toFixed(2)
     };
