@@ -196,7 +196,7 @@ if (!cfToken) {
     // Now clear cart and redirect
             localStorage.removeItem("cart");
             alert("Order Placed Successfully!");
-            window.location.href = "https://priceslashstore.com/myorders";
+            window.location.href = `https://priceslashstore.com/orderDetails?orderId=${orderId}`;
         } else {
             alert("Failed to submit information.");
         }
