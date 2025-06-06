@@ -175,6 +175,7 @@ if (!cfToken) {
 
     const emailTemplateParams = {
         to_name: fullName,
+        to_email: email,
         order_id: orderId,
         order_date: orderDate,
         order_url: `https://priceslashstore.com/orderdetails.html?orderId=${orderId}`,
