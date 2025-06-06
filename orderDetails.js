@@ -145,7 +145,7 @@ const itemsHTML = order.items.map(item => {
               <p>To pay with e-transfer, send your payment to:</p>
               <p>info@priceslashstore.com</p>
               <br>
-              <p><strong>Please include the following information when sending your payment as a message or comment, so our team can contact you for shipping details once your payment is confirmed:</strong></p>
+              <p><strong>Please include the following information as a message or comment when sending your payment, so our team can confirm and match your payment:</strong></p>
               <p>Order ID: ${order.orderId}</p>
             </div>
            
