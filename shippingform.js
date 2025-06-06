@@ -164,7 +164,8 @@ if (!cfToken) {
 
         if (response.ok) {
               // Prepare EmailJS template params
-    const orderId = "PS" + Date.now(); // Simple order ID example
+            const data = await response.json();
+    const orderId = data.orderId;
     const orderDate = new Date().toLocaleDateString();
 
     const productListHTML = cartItems.map(item => 
