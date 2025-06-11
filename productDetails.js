@@ -189,6 +189,38 @@ $("#productShareLink").attr("href","https://priceslashstore.com/productDetails/"
 //$("#productDescription").text(description);
 $("#descriptionDynamic").append('<p class="text-start text-muted" id="productDescription">'+description+'</p>');
 
+var descriptionText = data.productDescription;
+
+var tooltipText = "";
+
+if (descriptionText.includes("Product Condition: New (Sealed Packaging)")) {
+  tooltipText = "Brand New: factory-sealed item, never used.";
+} else if (descriptionText.includes("Product Condition: New (Open Packaging)")) {
+  tooltipText = "Open Box: like-new item, fully tested, and cleaned.";
+} else if (descriptionText.includes("Product Condition: Used")) {
+  tooltipText = "Used: functional item with cosmetic wear.";
+} else if (descriptionText.includes("Product Condition: Refurbished")) {
+  tooltipText = "Refurbished: professionally repaired and tested item.";
+}
+else if (descriptionText.includes("Product Condition: New") && 
+           !descriptionText.includes("Open Packaging") && 
+           !descriptionText.includes("Sealed Packaging")) {
+    tooltipText = "New: item is new and unused. Item may not come factory sealed but has not been used.";}
+
+else {
+  tooltipText = ""; // no tooltip if unknown
+}
+
+$("#conditionTooltip").attr("title", tooltipText);
+
+// VERY IMPORTANT — re-initialize tooltip after setting title dynamically
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+
+
+
             // Add a delay before setting prerenderReady to true
             setTimeout(() => {
               console.log('Prerender Ready flag set to true');
