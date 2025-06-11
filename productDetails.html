@@ -19,6 +19,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="canonical" id="productShareLink" href="">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://priceslashstore.com/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta name="mobile-web-app-capable" content="yes">
@@ -249,7 +250,15 @@
             <div class="col-sm-5">
               <div class="classWithPad" id="test">
               <h1 class="text-start" class="display-1" style="padding-top: 35px;" id="productTitle"></h1>
-              <h5 class="text-start text-muted" style="padding-top: 25px;" id="productPrice"></h5>
+              <h5 class="text-start text-muted" style="padding-top: 25px;">
+                <span style="display: inline-flex; align-items: center;">
+                    <span id="productPrice"></span>
+                    <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" 
+                        title="Price is inclusive of taxes, shipping, and handling."
+                        style="font-size: 16px; color: #888; cursor: pointer; margin-left: 6px;">
+                    </i>
+                </span>
+            </h5>
               <button id="addToCart" href="" class="btn btn-dark btn-lg" style="margin-top:20px; margin-top:20px; background-color: #000;
               text-transform: uppercase;
               font-size: 0.8rem;
@@ -386,7 +395,10 @@
 
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-
+<script>var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })</script>
       
   </body>
 </html>
