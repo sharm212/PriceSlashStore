@@ -296,19 +296,25 @@
 	</url>
         <url>
 		<loc>https://priceslashstore.com/blog/</loc>
-		<lastmod>2025-07-07</lastmod>
+		<lastmod>2025-06-18</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.8</priority>
 	</url>  
         <url>
 		<loc>https://priceslashstore.com/blog/why-buy-open-box-electronics</loc>
-		<lastmod>2025-07-07</lastmod>
+		<lastmod>2025-06-07</lastmod>
 		<changefreq>yearly</changefreq>
 		<priority>0.8</priority>
 	</url>    
-            <url>
+    <url>
 		<loc>https://priceslashstore.com/blog/top-gifts-for-fathers-day-2025</loc>
-		<lastmod>2025-07-13</lastmod>
+		<lastmod>2025-06-13</lastmod>
+		<changefreq>yearly</changefreq>
+		<priority>0.8</priority>
+	</url>
+    <url>
+		<loc>https://priceslashstore.com/blog/wwdc-2025-canada-apple-deals</loc>
+		<lastmod>2025-06-18</lastmod>
 		<changefreq>yearly</changefreq>
 		<priority>0.8</priority>
 	</url>  
