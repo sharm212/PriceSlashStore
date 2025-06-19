@@ -56,6 +56,7 @@ function loadCart(productDB, cart) {
 
   if (cart.length === 0) {
     emptyCart.style.display = "block";
+    $("#cartTotal").text("");
     cartList.innerHTML = "";
     return;
   }
@@ -103,6 +104,7 @@ const firstImage = imageString.includes(",")
         </div>
       </div>`;
   });
+  $("#cartTotal").text("Total: $" + totalCartValue.toFixed(2));
   $("#productPriceModal").text("$"+totalCartValue);
 }
 window.removeFromCart = function(sku) {
