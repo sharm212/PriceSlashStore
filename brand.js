@@ -20,19 +20,33 @@ const brandParam = (urlParams.get("brand") || urlParams.get("name") || "").toLow
 
 if (!brandParam) {
   document.getElementById("listOfProducts").innerHTML = "<p class='text-center'>No brand selected.</p>";
+} else {
+  function toTitleCase(str) {
+    return str.replace(/\w\S*/g, txt =>
+      txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()
+    );
+  }
+
+  const formattedBrand = toTitleCase(brandParam);
+  document.title = `${formattedBrand} | Price Slash`;
+  document.getElementById("brandTitle").textContent = formattedBrand;
 
   const canonicalLink = document.querySelector("link[rel='canonical']");
+  const canonicalURL = `https://priceslashstore.com/brand?name=${encodeURIComponent(brandParam)}`;
   if (canonicalLink) {
-    canonicalLink.setAttribute("href", `https://priceslashstore.com/brand?name=${encodeURIComponent(brandParam)}`);
+    canonicalLink.setAttribute("href", canonicalURL);
   } else {
     const newCanonical = document.createElement("link");
     newCanonical.setAttribute("rel", "canonical");
-    newCanonical.setAttribute("href", `https://priceslashstore.com/brand?name=${encodeURIComponent(brandParam)}`);
+    newCanonical.setAttribute("href", canonicalURL);
     document.head.appendChild(newCanonical);
   }
 
-} else {
-  document.title = `${brandParam.charAt(0).toUpperCase() + brandParam.slice(1)} | Price Slash`;
+  const ogTitleTag = document.querySelector('meta[property="og:title"]');
+  if (ogTitleTag) {
+    ogTitleTag.setAttribute("content", `${formattedBrand} | Price Slash`);
+  }
+
   loadProducts(0, 8);
 }
 
