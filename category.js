@@ -20,26 +20,37 @@ const categoryParam = (urlParams.get("category") || "").toLowerCase();
 document.getElementById("categoryTitle").textContent =
   decodeURIComponent(categoryParam.replace(/-/g, ' ')).replace(/\b\w/g, l => l.toUpperCase());
 
-if (!categoryParam) {
-  document.getElementById("listOfProducts").innerHTML = "<p class='text-center'>No category selected.</p>";
-
-  const canonicalLink = document.querySelector("link[rel='canonical']");
-  const canonicalURL = `https://priceslashstore.com/category?category=${encodeURIComponent(categoryParam)}`;
-  
-  if (canonicalLink) {
-    canonicalLink.setAttribute("href", canonicalURL);
+  if (!categoryParam) {
+    document.getElementById("listOfProducts").innerHTML = "<p class='text-center'>No category selected.</p>";
   } else {
-    const newCanonical = document.createElement("link");
-    newCanonical.setAttribute("rel", "canonical");
-    newCanonical.setAttribute("href", canonicalURL);
-    document.head.appendChild(newCanonical);
+
+    function toTitleCase(str) {
+      return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1));
+    }
+    
+    const decodedCategory = decodeURIComponent(categoryParam.replace(/-/g, ' '));
+    const pageTitle = `${toTitleCase(decodedCategory)} | Price Slash`;
+    
+    document.title = pageTitle;
+    
+    const ogTitleTag = document.querySelector('meta[property="og:title"]');
+    if (ogTitleTag) {
+      ogTitleTag.setAttribute("content", pageTitle);
+    }
+
+    const canonicalURL = "https://priceslashstore.com/category?category=" + encodeURIComponent(categoryParam);    
+    const canonicalLink = document.querySelector("link[rel='canonical']");
+    if (canonicalLink) {
+      canonicalLink.setAttribute("href", canonicalURL);
+    } else {
+      const newCanonical = document.createElement("link");
+      newCanonical.setAttribute("rel", "canonical");
+      newCanonical.setAttribute("href", canonicalURL);
+      document.head.appendChild(newCanonical);
+    }
+  
+    loadProducts(0, 8);
   }
-
-
-} else {
-  document.title = `${categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1)} | Price Slash`;
-  loadProducts(0, 8);
-}
 
 let start = 0;
 let end = 8;
