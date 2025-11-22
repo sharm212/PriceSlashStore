@@ -279,8 +279,7 @@
       <div class="form-container" style="padding: 30px 20px; margin-bottom: 100px;">
         <h2 style="padding-top:10px;">Contact Us</h2>
         <hr />
-        <form name="contact-form" onsubmit="sendEmail(); reset(); return false;" class="form">
-      
+        <form name="contact-form" id="contact-form" onsubmit="sendEmail(event);" class="form">      
         <!-- Name input -->
         <label class="field">
             <span class="field__label text-start" for="name">Full Name</span>
@@ -371,32 +370,21 @@
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      function sendEmail(event) {
-        event.preventDefault();
-      
-        // Get Turnstile token
-        const token = document.querySelector('[name="cf-turnstile-response"]').value;
-      
-        if (!token) {
-          alert("Please complete the security check before submitting.");
-          return;
-        }
-      
-        // OPTIONAL: You can block repeated submissions
-        document.querySelector(".button").disabled = true;
-      
-        emailjs.sendForm('service_200r51f', 'template_wqn1g6o', document.forms['contact-form'])
-          .then(function() {
-            alert("Your message has been sent successfully!");
-            document.forms['contact-form'].reset();
-            turnstile.reset(); // reset widget
-            document.querySelector(".button").disabled = false;
-          }, function(error) {
-            console.error("FAILED...", error);
-            alert("There was an error sending your message. Please try again later.");
-            document.querySelector(".button").disabled = false;
-          });
-      }
+ function sendEmail(e) {
+    // Stop the browser from doing a normal form submit
+    e.preventDefault();
+
+    const form = document.getElementById('contact-form');
+
+    emailjs.sendForm('service_200r51f', 'template_wqn1g6o', form)
+      .then(function () {
+        alert("Your message has been sent successfully!");
+        form.reset();
+      }, function (error) {
+        console.error("FAILED...", error);
+        alert("There was an error sending your message. Please try again later.");
+      });
+  }
       </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </body>
